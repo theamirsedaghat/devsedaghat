@@ -1,0 +1,251 @@
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --radius-md: calc(var(--radius) - 2px);
+
+  --radius-lg: var(--radius);
+
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+
+  --color-border: var(--border);
+
+  --color-input: var(--input);
+
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+
+  --color-chart-2: var(--chart-2);
+
+  --color-chart-3: var(--chart-3);
+
+  --color-chart-4: var(--chart-4);
+
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
+  --color-sidebar-primary: var(--sidebar-primary);
+
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  --color-sidebar-accent: var(--sidebar-accent);
+
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+
+  --color-sidebar-border: var(--sidebar-border);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Fonts */
+  --font-poppins: var(--font-poppins);
+  --font-roboto: var(--font-roboto);
+  --font-nunito: var(--font-nunito);
+
+  /*  */
+  --animate-rainbow: rainbow 6s infinite ease-in-out;
+  @keyframes rainbow {
+    0% {
+      background-position: 0% 50%, 0% 75%;
+    }
+    25% {
+      background-position: -80% 5%, 70% 20%;
+    }
+    50% {
+      background-position: -20% 80%, 20% 50%;
+    }
+    75% {
+      background-position: -30% 30%, 40% 20%;
+    }
+    100% {
+      background-position: 0% 50%, 0% 100%;
+    }
+  }
+}
+
+/* 
+  <FlipWords
+                  words={[
+                    {
+                      text: "Tech Educator",
+                      className: "text-black",
+                    },
+                    {
+                      text: "Full-Stack Developer",
+                      className: "text-(--mint-p-200)",
+                    },
+                    {
+                      text: "SaaS Founder",
+                      className: "text-(--purple-p-200)",
+                    },
+                    {
+                      text: "UI/UX Designer",
+                      className: "text-(--yellow-p-200)",
+                    },
+                    {
+                      text: "Content Creator",
+                      className: "text-(--pink-p-200)",
+                    },
+                  ]}
+                  className="text-2xl md:text-3xl font-semibold"
+                />
+
+
+                "use client";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { cn } from "@/lib/utils";
+
+type FlipWordItem = {
+  text: string;
+  className?: string; // رنگ/گرادیانت/استایل اختصاصی همین کلمه
+};
+
+type FlipWordsProps = {
+  words: Array<string | FlipWordItem>;
+  duration?: number;
+  className?: string; // استایل عمومی همه‌ی کلمات (مثلاً text-2xl font-semibold)
+};
+
+export const FlipWords = ({
+  words,
+  duration = 3000,
+  className,
+}: FlipWordsProps) => {
+  // همیشه words رو normalize می‌کنیم به { text, className }
+  const normalizedWords = useMemo<FlipWordItem[]>(
+    () => words.map((w) => (typeof w === "string" ? { text: w } : w)),
+    [words]
+  );
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
+
+  const currentWord = normalizedWords[currentIndex];
+
+  const startAnimation = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prev + 1 < normalizedWords.length ? prev + 1 : 0
+    );
+    setIsAnimating(true);
+  }, [normalizedWords.length]);
+
+  useEffect(() => {
+    if (!isAnimating) {
+      const timeout = setTimeout(() => {
+        startAnimation();
+      }, duration);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isAnimating, duration, startAnimation]);
+
+  if (!currentWord) return null;
+
+  return (
+    <AnimatePresence
+      onExitComplete={() => {
+        setIsAnimating(false);
+      }}
+    >
+      <motion.div
+        key={currentWord.text}
+        initial={{
+          opacity: 0,
+          y: 10,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 10,
+        }}
+        exit={{
+          opacity: 0,
+          y: -40,
+          x: 40,
+          filter: "blur(8px)",
+          scale: 2,
+          position: "absolute",
+        }}
+        className={cn(
+          "relative z-10 inline-block px-2 text-left",
+          className, // استایل عمومی
+          currentWord.className // استایل اختصاصی همین کلمه
+        )}
+      >
+        {currentWord.text.split(" ").map((word, wordIndex) => (
+          <motion.span
+            key={word + wordIndex}
+            initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{
+              delay: wordIndex * 0.3,
+              duration: 0.3,
+            }}
+            className="inline-block whitespace-nowrap"
+          >
+            {word.split("").map((letter, letterIndex) => (
+              <motion.span
+                key={word + letterIndex}
+                initial={{
+                  opacity: 0,
+                  y: 10,
+                  filter: "blur(8px)",
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  filter: "blur(0px)",
+                }}
+                transition={{
+                  delay: wordIndex * 0.3 + letterIndex * 0.05,
+                  duration: 0.2,
+                }}
+                className="inline-block"
+              >
+                {letter}
+              </motion.span>
+            ))}
+            <span className="inline-block">&nbsp;</span>
+          </motion.span>
+        ))}
+      </motion.div>
+    </AnimatePresence>
+  );
+}; */

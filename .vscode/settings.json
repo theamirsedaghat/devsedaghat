@@ -1,0 +1,10 @@
+{
+  "editor.hover.above": false,
+  "editor.hover.enabled": false,
+  "editor.hover.sticky": false,
+  "css.hover.documentation": false,
+  "css.hover.references": false,
+  "accessibility.verbosity.hover": false,
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 120
+}
