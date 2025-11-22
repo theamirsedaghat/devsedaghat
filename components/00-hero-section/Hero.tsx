@@ -1,79 +1,66 @@
 import Image from "next/image";
-
 import { Button } from "../ui/button";
-
 import { ChevronRight, Plus } from "lucide-react";
 import Link from "next/link";
 import { AnimatedSpan, Terminal, TypingAnimation } from "../ui/terminal";
 import { HeroAnimatedBeam } from "./HeroAnimatedBeam";
-import { Highlighter } from "../ui/highlighter";
 import { FlipWords } from "../ui/flip-words";
 
 const Hero = () => {
   return (
-    <section className="relative my-5 min-h-screen md:min-h-[90vh]   ">
+    <section
+      id="hero"
+      className="relative my-5   flex items-start md:items-center justify-center overflow-hidden lg:overflow-visible"
+    >
       <div
         id="bg-absolute"
-        className={`
-        pointer-events-none absolute  inset-0 mx-4
-      rounded-tl-[180px] rounded-tr-[40px] rounded-br-[25px] rounded-bl-[60px]
-       bg-(--myneutral-200)
-      md:w-[90%] md:rounded-tl-[200px]
-      lg:rounded-tl-[250px] 
-      
-
-        `}
+        className="pointer-events-none absolute inset-0   max-w-7xl  md:w-[90%] xl:mx-0 px-4 sm:px-6 md:px-8 lg:px-0
+                   rounded-tl-[180px] rounded-tr-[30px] rounded-br-[20px] rounded-bl-[60px]
+                   
+                   sm:rounded-tl-[120px] sm:rounded-tr-[40px] sm:rounded-br-[30px] sm:rounded-bl-[80px]
+                   md:rounded-tl-[180px] md:rounded-tr-[50px] md:rounded-br-[35px] md:rounded-bl-[100px]
+                   lg:rounded-tl-[250px] lg:rounded-tr-[60px] lg:rounded-br-[40px] lg:rounded-bl-[120px]
+                   bg-(--myneutral-200) opacity-70 dark:opacity-50 -z-20"
       />
-      {/*!
-bg-cyan-800/30
-bg-fuchisa-500/40
-bg-red-600/20
-bg-amber-500/20
-bg-indigo-900/20
-bg-lime-400/30
-bg-rose-500/30
-bg-emerald-800/30
-bg-teal-950/30
-bg-violet-950/30
 
-*/}
-      <div className="relative z-10 container mx-auto max-w-7xl  ">
-        <div className="flex  flex-col items-center justify-center gap-12  py-24 lg:py-36 lg:min-h-[90vh] lg:flex-row lg:justify-between lg:gap-16 bg-violet-950/30  max-w-[1200] mx-auto px-12 xl:px-0">
-          <div className=" space-y-8  text-center lg:w-3/7 lg:text-left ">
-            <div className="flex grow flex-col justify-end   text-center lg:text-left  ">
-              <p className="font-body mb-2 text-sm text-foreground/70 md:text-base">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-8   ">
+        <div
+          className="flex flex-col items-center justify-center  gap-8  sm:gap-12 md:gap-14 lg:gap-16 xl:gap-20
+                        pt-18 lg:py-20 md:pb-36
+                        lg:min-h-[90vh] lg:flex-row lg:justify-between "
+        >
+          {/* بخش متن و دکمه‌ها */}
+          <div className="flex flex-col items-center justify-center  lg:items-start text-center lg:text-left space-y-6  sm:space-y-10 md:space-y-12 w-full   sm:max-w-lg md:max-w-2xl  lg:w-full  ">
+            {/* سلام و نام */}
+            <div className="space-y-4  sm:space-y-6 ">
+              <p className="text-base font-medium text-foreground/70 tracking-widest">
                 👋 Hey, I&apos;m
               </p>
 
-              <h1 className="font-headline tracking-tight">
-                <strong className="block text-4xl sm:text-5xl font-bold text-foreground">
-                  Amir Sedaghat
-                </strong>
+              <h1 className="font-bold tracking-tight text-4xl  sm:text-5xl md:text-6xl ">
+                <strong className="block text-foreground">Amir Sedaghat</strong>
               </h1>
-              <h1 className="mt-4  flex-wrap items-center gap-2 text-center lg:text-left md:text-xl text-foreground/70">
-                <span>also known as </span>
-                {/* <Highlighter padding={3} action="box" color="var(--blue-p-400)"> */}
-                <span className="italic font-semibold text-foreground mx-2 ">
-                  <strong>DevSedaghat</strong>
+
+              <p className=" text-base  sm:text-xl text-foreground/70 flex flex-wrap justify-center lg:justify-start items-center gap-1 ">
+                <span className="tracking-wider">also known as</span>
+                <span className="italic font-bold text-foreground">
+                  DevSedaghat
                 </span>
-                {/* </Highlighter> */}
-              </h1>
+              </p>
 
-              <div className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground/80 my-8">
-                <span className="text-xl">A passionate </span>
-
-                {/* <FlipWords
+              <div className=" text-3xl mx-auto items-center justify-center text-center lg:text-left font-semibold text-foreground/70  leading-tight sm:leading-normal space-y-2 ">
+                <p className="text-lg sm:text-2xl md:text-3xl ">
+                  A passionate{" "}
+                </p>
+                <FlipWords
+                  className="text-4xl text-center"
                   words={[
                     {
                       text: "Tech Educator",
-                      className: "text-(--blue-p-300)",
+                      className: "text-(--blue-p-200)",
                     },
                     {
-                      text: "Full-Stack Developer",
-                      className: "text-(--mint-p-300)",
-                    },
-                    {
-                      text: "SaaS Founder",
+                      text: "SaaS Developer",
                       className: "text-(--purple-p-300)",
                     },
                     {
@@ -81,14 +68,19 @@ bg-violet-950/30
                       className: "text-(--yellow-p-200)",
                     },
                     {
+                      text: "Full-Stack Dev",
+
+                      className: "text-(--mint-p-300) ",
+                    },
+                    {
                       text: "Content Creator",
                       className: "text-(--pink-p-300)",
                     },
                   ]}
-                  className="text-2xl md:text-3xl font-semibold"
-                /> */}
+                />
               </div>
-              <div className="space-y-2 leading-7 text-balance font-roboto text-foreground/70 mx-auto bg-blue-900 md:w-3/4 lg:w-auto">
+
+              <div className="mt-6  sm:mt-10 space-y-3 text-base sm:text-lg  lg:text-base  leading-relaxed text-foreground/70 max-w-[85%]  sm:max-w-lg md:max-w-2xl mx-auto lg:mx-0">
                 <p>
                   I design and develop web and mobile products with a strong
                   focus on usability and user experience.
@@ -101,21 +93,22 @@ bg-violet-950/30
               </div>
             </div>
 
-            <div className="space-y-4 relative  flex flex-col  ">
-              <p className="text-(--orange-p-200) bg-red-950  text-sm">
+            <div className="space-y-6  w-full  ">
+              <p className="text-(--orange-p-200) font-medium text-base sm:text-base">
                 Join the journey. Learn, build, and grow —{" "}
                 <span className="italic">with me</span>.
               </p>
-              <div className="space-x-4">
+
+              <div className="space-y-4 sm:space-y-0 sm:space-x-4 w-full flex justify-center flex-col sm:flex-row items-center  ">
                 <Button
-                  className="cursor-pointer bg-(--blue-p-200) hover:bg-(--blue-p-200) transition-all duration-400 hover:shadow-[0_0_16px_var(--blue-p-200)]
+                  className="cursor-pointer bg-(--blue-p-200) hover:bg-(--blue-p-200) transition-all duration-400 hover:shadow-[0_0_16px_var(--blue-p-200)] w-full sm:w-1/2
               "
                 >
                   🎉 <hr className=" h-4 w-px bg-neutral-500" />
                   Follow on LinkedIn <Plus />
                 </Button>
-                <Link href={"#project"}>
-                  <Button className="group animate-rainbow  cursor-pointer border-0 bg-size-[200%]    [background-clip:padding-box,border-box,border-box]     bg-origin-border     text-primary-foreground     transition-all    duration-400 [border:calc(0.125rem)_solid_transparent] hover:shadow-[0_0_16px_var(--purple-p-200)]    hover:brightness-110 hover:saturate-150 dark:bg-[linear-gradient(var(--text-dark-100),rgba(0,0,0,0)),linear-gradient(90deg,var(--mint-p-300),var(--yellow-p-200),var(--pink-p-100),var(--blue-p-300),var(--purple-p-200),var(--mint-p-200),var(--blue-p-300),var(--yellow-p-200))] ">
+                <Link href={"#project"} className="w-full">
+                  <Button className="group animate-rainbow w-full  cursor-pointer border-0 bg-size-[200%]    [background-clip:padding-box,border-box,border-box]     bg-origin-border     text-primary-foreground     transition-all    duration-400 [border:calc(0.125rem)_solid_transparent] hover:shadow-[0_0_16px_var(--purple-p-200)]    hover:brightness-110 hover:saturate-150 dark:bg-[linear-gradient(var(--text-dark-100),rgba(0,0,0,0)),linear-gradient(90deg,var(--mint-p-300),var(--yellow-p-200),var(--pink-p-100),var(--blue-p-300),var(--purple-p-200),var(--mint-p-200),var(--blue-p-300),var(--yellow-p-200))] ">
                     View my project
                     <ChevronRight className=" size-4 stroke-neutral-500 group-hover:stroke-neutral-800 transition-all duration-300 ease-in-out group-hover:translate-x-0.5" />
                   </Button>
@@ -124,15 +117,16 @@ bg-violet-950/30
             </div>
           </div>
 
-          {/* <div className="flex absolute -bottom-12 left-1/2 items-end">
-            <div className=" absolute  w-80  bg-(--myneutral-500)  rounded-br-[10px] rounded-bl-[45px] rounded-tl-[80px] rounded-tr-[30px] h-[70%]"></div>
+          {/*!-------- */}
+          <div className="flex  md:left-[15%]  mx-6 md:left- md:mx-auto absolute bottom-0  lg:-bottom-12 lg:left-1/2 lg:items-end  ">
+            <div className=" absolute bottom-0 justify-center items-center  w-80  bg-(--myneutral-500)  rounded-br-[10px] rounded-bl-[45px] rounded-tl-[80px] rounded-tr-[30px] h-[70%]"></div>
             <svg
               width="306"
               height="544"
               viewBox="0 0 306 544"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute -left-12"
+              className="absolute w-52 bottom-0 -left-5 md:-left-12 z-30"
             >
               <path
                 fillRule="evenodd"
@@ -147,7 +141,7 @@ bg-violet-950/30
               viewBox="0 0 291 516"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute "
+              className="absolute w-62 left-8 "
             >
               <path
                 fillRule="evenodd"
@@ -163,7 +157,7 @@ bg-violet-950/30
               viewBox="0 0 304 430"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute right-4 bottom-12 "
+              className="absolute w-50 bottom-8 left-32  md:right-4 md:bottom-12"
             >
               <path
                 fillRule="evenodd"
@@ -173,21 +167,20 @@ bg-violet-950/30
               />
             </svg>
 
-            <aside className="z-10">
+            <aside className="z-40">
               <Image
                 src={"/HeroImage.png"}
-                alt="Amir Sedaghat's Image"
+                alt="Portrait of Amir Sedaghat (DevSedaghat) - tech educator, full-stack developer, and SaaS builder."
                 width={400}
                 height={400}
                 quality={100}
                 priority
+                className="w-84 lg:w-100"
               />
             </aside>
-
             <Terminal
-              sequence={false}
               startOnView={true}
-              className="z-20 absolute bottom-10 -right-50 "
+              className="z-40 absolute bottom-2  left-[20%] md:left-[30%] sm:left-48 w-70 "
             >
               <TypingAnimation delay={0}>
                 &gt; npx DevSedaghat@latest init
@@ -203,8 +196,9 @@ bg-violet-950/30
                 ✨ Ready to deploy
               </AnimatedSpan>
             </Terminal>
-          </div> */}
-          {/* <HeroAnimatedBeam className="w-3/8" /> */}
+          </div>
+          <HeroAnimatedBeam className="w-full lg:pr-6  md:w-full md:-right-28 md:bottom-8 lg:-right-8 lg:bottom-0 z-35 " />
+          <div className="h-[400px] md:hidden"></div>
         </div>
       </div>
     </section>

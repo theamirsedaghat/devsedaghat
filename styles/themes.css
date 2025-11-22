@@ -70,9 +70,13 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* Fonts */
+
   --font-poppins: var(--font-poppins);
   --font-roboto: var(--font-roboto);
   --font-nunito: var(--font-nunito);
+
+  /* Breakpoint */
+  --breakpoint-xs: 20rem;
 
   /*  */
   --animate-rainbow: rainbow 6s infinite ease-in-out;

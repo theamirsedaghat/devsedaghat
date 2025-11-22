@@ -216,7 +216,7 @@ export const Terminal = ({
     <div
       ref={containerRef}
       className={cn(
-        "group relative overflow-hidden    rounded-xl border border-white/15    bg-white/5 backdrop-blur-xl    shadow-2xl",
+        "group relative overflow-hidden    rounded-xl border border-white/15    bg-white/5 backdrop-blur-lg    shadow-2xl",
         className
       )}
     >

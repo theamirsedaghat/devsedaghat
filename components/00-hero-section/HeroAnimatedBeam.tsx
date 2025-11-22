@@ -54,17 +54,23 @@ export function HeroAnimatedBeam({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative flex h-[500px] w-full items-center justify-center overflow-hidden p-4 ",
+        "relative flex w-full items-center justify-center overflow-hidden mt-8 md:mt-0 ",
         className
       )}
       ref={containerRef}
     >
       <div className="flex size-full max-w-lg flex-row items-stretch justify-between gap-10 ">
-        <div className="flex flex-col justify-center opacity-0">
-          <Circle ref={div7Ref}></Circle>
+        <div className="flex flex-col justify-center ">
+          <Circle ref={div7Ref} className=" bg-white/40 cursor-default">
+            <BrainCircuit
+              className="
+              size-8 text-black/90 
+              transition-all duration-500 "
+            />
+          </Circle>
         </div>
         <div className="flex flex-col justify-center">
-          <Circle ref={div6Ref} className="size-16 bg-white/40 cursor-default">
+          <Circle ref={div6Ref} className=" bg-white/40 cursor-default ">
             <BrainCircuit
               className="
               size-8 text-black/90 

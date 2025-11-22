@@ -11,7 +11,7 @@ type FlipWordItem = {
 type FlipWordsProps = {
   words: Array<string | FlipWordItem>;
   duration?: number;
-  className?: string; // استایل عمومی همه‌ی کلمات (مثلاً text-2xl font-semibold)
+  className?: string;
 };
 
 export const FlipWords = ({
@@ -19,7 +19,6 @@ export const FlipWords = ({
   duration = 3000,
   className,
 }: FlipWordsProps) => {
-  // همیشه words رو normalize می‌کنیم به { text, className }
   const normalizedWords = useMemo<FlipWordItem[]>(
     () => words.map((w) => (typeof w === "string" ? { text: w } : w)),
     [words]
@@ -79,7 +78,7 @@ export const FlipWords = ({
           position: "absolute",
         }}
         className={cn(
-          "relative z-10 inline-block px-2 text-left",
+          "relative z-10 inline-block  text-center ",
           className, // استایل عمومی
           currentWord.className // استایل اختصاصی همین کلمه
         )}

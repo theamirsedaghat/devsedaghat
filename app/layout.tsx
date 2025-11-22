@@ -3,6 +3,7 @@ import { Poppins, Roboto, Nunito } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themes-provider";
+import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 
 const poppins = Poppins({
   subsets: ["latin"],

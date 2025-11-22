@@ -128,7 +128,7 @@ const MenuNew: React.FC<MenuNewProps> = ({
   };
 
   const navVariants = {
-    full: { width: "90%", maxWidth: "1200px", transition: { duration: 0.3 } },
+    full: { width: "100%", maxWidth: "1200px", transition: { duration: 0.3 } },
     shrunk: { maxWidth: "1200px", transition: { duration: 0.3 } },
   };
 
@@ -161,12 +161,17 @@ const MenuNew: React.FC<MenuNewProps> = ({
       link: "https://youtube.com",
     },
   ];
+
   return (
     <>
       <motion.nav
-        className={`fixed top-4 right-0  left-0 z-50 mx-auto flex w-full items-center justify-center py-3  lg:max-w-[1200px]  ${
-          isScrolled ? "md:max-w-4xl" : ""
-        }`}
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(22, 22, 30,.5), rgba(22, 22, 30,.5))",
+        }}
+        className={` fixed inset-x-0 mx-auto top-0 z-50 flex items-center justify-center px-4 py-6 backdrop-blur-xl bg-white/5 border-b border-white/5 mask-[linear-gradient(to_bottom,black,black_50%,transparent)] supports-backdrop-filter:backdrop-blur-xl rounded-bl-3xl rounded-br-3xl
+          
+          ${isScrolled ? "md:max-w-4xl" : ""}`}
         initial="full"
         animate={isScrolled ? "shrunk" : "full"}
         variants={navVariants}
@@ -276,7 +281,7 @@ const MenuNew: React.FC<MenuNewProps> = ({
             animate="visible"
             exit="hidden"
           >
-            <div className="w-full flex justify-end my-7 px-8 ">
+            <div className="w-full flex justify-end my-6 px-4">
               <div className="flex items-center justify-between grow ">
                 <button
                   className="p-[3px] relative cursor-pointer"
@@ -295,10 +300,10 @@ const MenuNew: React.FC<MenuNewProps> = ({
                 </InteractiveHoverButton>
               </div>
               <button
-                className="cursor-pointer"
+                className="cursor-pointer "
                 onClick={() => setIsOpen(false)}
               >
-                <CloseMenu className="w-8 h-8 " />
+                <CloseMenu className="size-8 " />
               </button>
             </div>
 
