@@ -1,25 +1,24 @@
-import React from "react";
 import { Highlighter } from "../ui/highlighter";
 import { TabSkills } from "./TabSkills";
 
 const Skills = () => {
   return (
-    <div>
-      <h2 className=" text-center font-nunito font-bold text-4xl text-(--blue-p-400) mb-8 tracking-tight uppercase">
+    <section id="skills">
+      <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--mint-p-300)  py-12 tracking-tight uppercase">
         <Highlighter
           action="underline"
           isView
           strokeWidth={2}
           iterations={3}
-          color="var(--blue-p-400)"
-          padding={16}
+          color="var(--mint-p-300)"
+          padding={12}
           animationDuration={1000}
         >
-          Skills
+          Skills 🛠️
         </Highlighter>
       </h2>
       <TabSkills />
-    </div>
+    </section>
   );
 };
 

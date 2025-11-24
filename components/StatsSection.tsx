@@ -48,7 +48,7 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ className }) => {
                 delay={0.4}
                 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground"
               />
-              <span className="text-lg sm:text-xl md:text-2xl font-medium text-foreground/80">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground">
                 +
               </span>
             </div>

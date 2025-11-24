@@ -15,18 +15,11 @@
       system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 }
-/* چرخش در حالت موبایل */
-@media (max-width: 767px) {
-  .beam {
-    transform: rotate(-90deg);
-  }
 
-  /* تنظیم جهت و حرکت در موبایل */
-  .animated-beam {
-    transform-origin: center;
-  }
-
-  .circle {
-    transform: rotate(90deg); /* آیکون‌ها در حالت موبایل بچرخند */
-  }
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE و Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

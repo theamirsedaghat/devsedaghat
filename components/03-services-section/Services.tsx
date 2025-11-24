@@ -1,26 +1,208 @@
-import React from "react";
+"use client";
+
+import { BentoCard, BentoGrid } from "../ui/bento-grid";
 import { Highlighter } from "../ui/highlighter";
-import { WobbleCards } from "./WobbleCards";
+import { WobbleCard } from "../ui/wobble-card";
+import {
+  Rocket,
+  LayoutTemplate,
+  Code2,
+  Users,
+  Lightbulb,
+  Video,
+} from "lucide-react";
 
-const Services = () => {
+const services = [
+  {
+    Icon: Rocket,
+    name: "MVP & SaaS Development",
+    description:
+      "From idea to a working web/mobile MVP. I help founders and small teams ship the first version of their product with a modern stack and a clear roadmap.",
+    href: "#contact",
+    cta: "Discuss an MVP",
+    className: "lg:row-start-1 lg:row-end-3 lg:col-start-1 lg:col-end-3",
+    background: (
+      <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-3xl bg-[radial-gradient(circle_at_30%_20%,var(--blue-p-300),transparent_60%)] opacity-70 blur-xl" />
+    ),
+  },
+  {
+    Icon: LayoutTemplate,
+    name: "Frontend & UX for Products",
+    description:
+      "Clean, modern interfaces for web and mobile. From Figma to production-ready React/Next.js, with attention to real-world UX and detail.",
+    href: "#contact",
+    cta: "Improve your product",
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
+    background: (
+      <div className="pointer-events-none absolute -right-6 -bottom-6 h-32 w-32 rounded-full bg-[conic-gradient(from_200deg,var(--mint-p-300),transparent_60%)] opacity-80 blur-lg" />
+    ),
+  },
+  {
+    Icon: Code2,
+    name: "Technical Consulting & Code Review",
+    description:
+      "Honest feedback on architecture, frontend code, and implementation. I help you simplify, clean up, and make your codebase easier to maintain.",
+    href: "#contact",
+    cta: "Get a review",
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
+    background: (
+      <div className="pointer-events-none absolute -left-8 -top-8 h-28 w-28 rounded-2xl bg-[radial-gradient(circle_at_20%_20%,var(--purple-p-300),transparent_60%)] opacity-70 blur-lg" />
+    ),
+  },
+  {
+    Icon: Users,
+    name: "1:1 Mentoring for Developers",
+    description:
+      "For learners who want more than tutorials. I help you build real projects, design a clear roadmap, and understand the why behind the code.",
+    href: "#contact",
+    cta: "Apply for mentoring",
+    className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+    background: (
+      <div className="pointer-events-none absolute -right-6 bottom-0 h-28 w-28 rounded-full bg-[radial-gradient(circle_at_70%_80%,var(--yellow-p-200),transparent_60%)] opacity-80 blur-lg" />
+    ),
+  },
+  {
+    Icon: Lightbulb,
+    name: "Idea Development & Strategy",
+    description:
+      "Brainstorming and shaping early-stage ideas. I help founders validate use-cases, map user flows, and plan realistic first versions.",
+    href: "#contact",
+    cta: "Refine your idea",
+    className: "lg:col-start-2 lg:col-end-3 lg:row-start-3 lg:row-end-4",
+    background: (
+      <div className="pointer-events-none absolute left-1/2 top-0 h-24 w-24 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_50%_0%,var(--orange-p-200),transparent_60%)] opacity-80 blur-lg" />
+    ),
+  },
+  {
+    Icon: Video,
+    name: "Tech Content Collaboration",
+    description:
+      "Partnering on dev-focused content: courses, videos, and learning experiences with accurate code and clear explanations.",
+    href: "#contact",
+    cta: "Propose a collab",
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4",
+    background: (
+      <div className="pointer-events-none absolute -right-6 top-4 h-24 w-24 rounded-3xl bg-[radial-gradient(circle_at_80%_0%,var(--pink-p-300),transparent_60%)] opacity-80 blur-lg" />
+    ),
+  },
+];
+
+export function Services() {
   return (
-    <div>
-      <h2 className=" text-center font-nunito font-bold text-4xl text-(--blue-p-400) mb-8 tracking-tight uppercase">
-        <Highlighter
-          action="underline"
-          isView
-          strokeWidth={2}
-          iterations={3}
-          color="var(--blue-p-400)"
-          padding={16}
-          animationDuration={1000}
-        >
-          Services
-        </Highlighter>
-      </h2>
-      <WobbleCards />
-    </div>
-  );
-};
+    <section id="services">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 md:px-6 lg:px-8">
+        <header className="space-y-3 w-full text-center">
+          <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--pink-p-300)  py-12 tracking-tight uppercase">
+            <Highlighter
+              action="underline"
+              isView
+              strokeWidth={2}
+              iterations={3}
+              color="var(--pink-p-300)"
+              padding={12}
+              animationDuration={1000}
+            >
+              Why me 🎯
+            </Highlighter>
+          </h2>
+          <h2 className="font-headline text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
+            How I help founders, teams, and learners.
+          </h2>
+          <p className="font-body text-sm md:text-base text-foreground/70">
+            I combine product thinking, frontend development, and tech education
+            to help you ship real products — and actually understand the code
+            behind them.
+          </p>
+        </header>
 
-export default Services;
+        <div className="grid w-full  grid-cols-1 gap-4 lg:grid-cols-3">
+          <WobbleCard containerClassName="col-span-1 lg:col-span-2 min-h-[260px] bg-[var(--myneutral-300)]/80">
+            <div className="max-w-xl">
+              <h3 className="text-left text-balance font-headline text-base md:text-xl lg:text-2xl font-semibold tracking-[-0.02em] text-white">
+                How I can help in practice
+              </h3>
+              <p className="mt-3 text-left font-body text-sm md:text-base leading-relaxed text-neutral-100/80">
+                I work with founders, small teams, and creators to bring ideas
+                to life. From frontend and product thinking to technical
+                decisions, I help build things that are both shippable and
+                maintainable.
+              </p>
+              <ul className="mt-4 space-y-2 text-left text-sm md:text-base text-neutral-100/80">
+                <li>• Frontend &amp; full-stack development for MVPs.</li>
+                <li>• UI/UX reviews, design refinement, and motion passes.</li>
+                <li>• Guidance on choosing stacks and integrating AI.</li>
+              </ul>
+              <p className="mt-4 text-xs md:text-sm text-neutral-200/80">
+                Building something in this space? The contact section is the
+                best way to reach me.
+              </p>
+            </div>
+
+            <div className="pointer-events-none absolute -right-6 -bottom-6 hidden h-40 w-40 rounded-3xl bg-[conic-gradient(from_180deg,var(--blue-p-300),var(--mint-p-300),transparent_70%)] opacity-80 blur-xl md:block" />
+          </WobbleCard>
+
+          <WobbleCard containerClassName="col-span-1 min-h-[220px] bg-orange-500/70">
+            <div className="max-w-xs">
+              <h3 className="font-headline  text-left text-balance text-base md:text-lg lg:text-xl font-semibold tracking-[-0.02em] text-white">
+                For founders &amp; teams
+              </h3>
+              <p className="mt-3 text-left font-body text-sm md:text-base text-neutral-100/85">
+                Need a first version of your product, not a giant agency? I help
+                you move from idea and Figma into a working MVP with a clear
+                scope and realistic decisions.
+              </p>
+            </div>
+          </WobbleCard>
+
+          <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg- min-h-[240px] lg:min-h-[220px] bg-violet-700/70">
+            <div className="max-w-xl">
+              <h3 className="font-headline text-left text-balance text-base md:text-lg lg:text-xl font-semibold tracking-[-0.02em] text-white">
+                For learners &amp; developers
+              </h3>
+              <p className="mt-3 text-left font-body text-sm md:text-base text-neutral-100/85">
+                If you found me through content, this is where we go deeper:
+                real projects, honest feedback, and a roadmap that fits your
+                goals — not just another playlist.
+              </p>
+              <p className="mt-3 text-left text-xs md:text-sm text-neutral-100/80">
+                1:1 mentoring, code reviews, and project guidance for serious
+                learners who want to ship.
+              </p>
+            </div>
+          </WobbleCard>
+        </div>
+
+        <header className="space-y-3 w-full text-center">
+          <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--orange-p-300)  py-12 tracking-tight uppercase">
+            <Highlighter
+              action="underline"
+              isView
+              strokeWidth={2}
+              iterations={3}
+              color="var(--orange-p-300)"
+              padding={12}
+              animationDuration={1000}
+            >
+              Services 🚀
+            </Highlighter>
+          </h2>
+          <h2 className="font-headline text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
+            How I help founders, teams, and learners.
+          </h2>
+          <p className="font-body text-sm md:text-base text-foreground/70">
+            I combine product thinking, frontend development, and tech education
+            to help you ship real products — and actually understand the code
+            behind them.
+          </p>
+        </header>
+        <div>
+          <BentoGrid className="lg:grid-rows-3">
+            {services.map((service) => (
+              <BentoCard key={service.name} {...service} />
+            ))}
+          </BentoGrid>
+        </div>
+      </div>
+    </section>
+  );
+}

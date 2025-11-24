@@ -70,7 +70,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="relative flex h-120 justify-center space-x-10 overflow-y-auto rounded-md p-10"
+      className="relative flex h-120 justify-center  md:space-x-10 text-center md:text-left overflow-y-auto rounded-md p-10"
       ref={ref}
     >
       <div className="relative flex items-start px-4">

@@ -24,7 +24,7 @@ export function ProgressiveBlur({
   return (
     <div
       className={cn(
-        "gradient-blur pointer-events-none fixed inset-x-0 z-10",
+        "gradient-blur pointer-events-none fixed inset-x-0 z-40",
         className,
         position === "top"
           ? "top-0"

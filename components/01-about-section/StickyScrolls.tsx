@@ -65,7 +65,7 @@ const aboutContent = [
 
 export function StickyScrolls() {
   return (
-    <div className="w-full py-4">
+    <div className="w-full p-4 ">
       <StickyScroll content={aboutContent} />
     </div>
   );

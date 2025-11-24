@@ -31,7 +31,7 @@ const defaultLinks = [
   { label: "Hero", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#services" },
 ];
 
 const MenuNew: React.FC<MenuNewProps> = ({
@@ -121,11 +121,12 @@ const MenuNew: React.FC<MenuNewProps> = ({
     setIsScrolled(latest > 200);
   });
 
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    if (onThemeToggle) onThemeToggle();
-  };
+  //? theme
+  // const toggleTheme = () => {
+  //   const newTheme = theme === "light" ? "dark" : "light";
+  //   setTheme(newTheme);
+  //   if (onThemeToggle) onThemeToggle();
+  // };
 
   const navVariants = {
     full: { width: "100%", maxWidth: "1200px", transition: { duration: 0.3 } },
@@ -164,19 +165,17 @@ const MenuNew: React.FC<MenuNewProps> = ({
 
   return (
     <>
-      <motion.nav
+      <nav
+        aria-label="Main navigation"
         style={{
           background:
             "linear-gradient(to bottom, rgba(22, 22, 30,.5), rgba(22, 22, 30,.5))",
         }}
-        className={` fixed inset-x-0 mx-auto top-0 z-50 flex items-center justify-center px-4 py-6 backdrop-blur-xl bg-white/5 border-b border-white/5 mask-[linear-gradient(to_bottom,black,black_50%,transparent)] supports-backdrop-filter:backdrop-blur-xl rounded-bl-3xl rounded-br-3xl
-          
-          ${isScrolled ? "md:max-w-4xl" : ""}`}
-        initial="full"
-        animate={isScrolled ? "shrunk" : "full"}
-        variants={navVariants}
+        className={` fixed inset-x-0 mx-auto top-0 z-50 flex items-center justify-center px-4 py-6 backdrop-blur-xl bg-white/5 border-b border-white/5 mask-[linear-gradient(to_bottom,black,black_50%,transparent)] supports-backdrop-filter:backdrop-blur-md 
+       
+          `}
       >
-        <div className=" mx-auto flex items-center justify-between w-full">
+        <div className=" mx-auto flex items-center justify-between    w-7xl">
           <Link href={"/"}>
             <span className="font-bold text-2xl">DevSedaghat</span>
           </Link>
@@ -193,14 +192,12 @@ const MenuNew: React.FC<MenuNewProps> = ({
                 >
                   <Link
                     href={link.href}
-                    // onClick={() => setActiveIndex(index)}
                     onClick={(e) => {
                       e.preventDefault();
                       document.querySelector(link.href)?.scrollIntoView({
                         behavior: "smooth",
                         block: "start",
                       });
-                      // no need to force setActiveIndex here; observer will update it
                     }}
                     className={`text-lg  transition-colors relative z-10 ${
                       activeIndex === index
@@ -214,23 +211,25 @@ const MenuNew: React.FC<MenuNewProps> = ({
               ))}
             </ul>
 
+            {/* //? theme */}
             {/* INDICATOR پایین لینک‌ها، با translateX + width داینامیک */}
-            <motion.div
+            {/* <motion.div
               className="absolute -bottom-1 h-1 bg-(--my-primary-red) rounded-full" // bottom-[-4px] برای پایین لینک‌ها
-              style={{ left: 0 }} // نقطه صفر
+              style={{ left: 0 }} 
               animate={{
-                x: indicatorPosition, // translateX دقیق بر اساس ref
-                width: indicatorWidth, // عرض دقیق لینک
+                x: indicatorPosition, 
+                width: indicatorWidth,
               }}
-              // transition={{ duration: 0.4, type: "spring", stiffness: 200 }} // smooth slide با spring برای performance
-            />
+              
+            /> */}
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
             <InteractiveHoverButton>
               <Link href={"#contact"}>Let&apos;s Talk</Link>
             </InteractiveHoverButton>
-            <button
+            {/* //? theme */}
+            {/* <button
               className="p-[3px] relative cursor-pointer"
               onClick={toggleTheme}
             >
@@ -238,7 +237,7 @@ const MenuNew: React.FC<MenuNewProps> = ({
               <div className=" p-2 border rounded-md  relative group transition duration-200 text-white hover:bg-(--bg-light)">
                 {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
               </div>
-            </button>
+            </button> */}
           </div>
 
           <div className="md:hidden flex items-center space-x-4">
@@ -255,7 +254,7 @@ const MenuNew: React.FC<MenuNewProps> = ({
             </button>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Overlay */}
       <AnimatePresence>
@@ -283,7 +282,8 @@ const MenuNew: React.FC<MenuNewProps> = ({
           >
             <div className="w-full flex justify-end my-6 px-4">
               <div className="flex items-center justify-between grow ">
-                <button
+                {/* //? theme */}
+                {/* <button
                   className="p-[3px] relative cursor-pointer"
                   onClick={toggleTheme}
                 >
@@ -291,7 +291,7 @@ const MenuNew: React.FC<MenuNewProps> = ({
                   <div className="p-2 rounded-md  relative group transition duration-200 text-white hover:bg-transparent">
                     {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
                   </div>
-                </button>
+                </button> */}
 
                 <InteractiveHoverButton className="grow mx-4 ">
                   <Link href={"#contact"} onClick={() => setIsOpen(false)}>
@@ -331,7 +331,7 @@ const MenuNew: React.FC<MenuNewProps> = ({
 
             <div className="w-full text-center px-6 py-4 mt-8 border-t">
               <h6 className="text-white/20 text-sm font-bold tracking-wider">
-                ©2025 DevAliG. All rights reserved.
+                ©2025 DevSedaghat. All rights reserved.
               </h6>
             </div>
           </motion.div>

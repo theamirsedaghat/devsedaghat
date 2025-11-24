@@ -19,7 +19,8 @@ const Hero = () => {
                    
                    sm:rounded-tl-[120px] sm:rounded-tr-[40px] sm:rounded-br-[30px] sm:rounded-bl-[80px]
                    md:rounded-tl-[180px] md:rounded-tr-[50px] md:rounded-br-[35px] md:rounded-bl-[100px]
-                   lg:rounded-tl-[250px] lg:rounded-tr-[60px] lg:rounded-br-[40px] lg:rounded-bl-[120px]
+                   lg:rounded-tl-[200px] lg:rounded-tr-[60px] lg:rounded-br-[40px] lg:rounded-bl-[120px]
+                   xl:rounded-tl-[250px]
                    bg-(--myneutral-200) opacity-70 dark:opacity-50 -z-20"
       />
 
@@ -173,14 +174,13 @@ const Hero = () => {
                 alt="Portrait of Amir Sedaghat (DevSedaghat) - tech educator, full-stack developer, and SaaS builder."
                 width={400}
                 height={400}
-                quality={100}
                 priority
                 className="w-84 lg:w-100"
               />
             </aside>
             <Terminal
               startOnView={true}
-              className="z-40 absolute bottom-2  left-[20%] md:left-[30%] sm:left-48 w-70 "
+              className="z-40 absolute bottom-2  left-[15%] md:left-[30%] sm:left-48 w-70 "
             >
               <TypingAnimation delay={0}>
                 &gt; npx DevSedaghat@latest init
@@ -197,7 +197,7 @@ const Hero = () => {
               </AnimatedSpan>
             </Terminal>
           </div>
-          <HeroAnimatedBeam className="w-full lg:pr-6  md:w-full md:-right-28 md:bottom-8 lg:-right-8 lg:bottom-0 z-35 " />
+          <HeroAnimatedBeam className="w-full lg:pr-6  md:w-full md:-right-28 md:bottom-8 lg:-right-8 lg:bottom-0 sm:z-35 z-50  " />
           <div className="h-[400px] md:hidden"></div>
         </div>
       </div>
