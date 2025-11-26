@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 // Schema with English messages
 const formSchema = z.object({
@@ -31,7 +30,6 @@ export default function ContactForm() {
     resolver: zodResolver(formSchema),
   });
 
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [status, setStatus] = useState<{
     success: boolean;
     message: string;
