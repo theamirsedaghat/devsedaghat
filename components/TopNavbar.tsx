@@ -1,30 +1,30 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import {
   motion,
+  AnimatePresence,
   useScroll,
   useMotionValueEvent,
-  AnimatePresence,
 } from "framer-motion";
 import Link from "next/link";
-import { Sun, Moon } from "lucide-react";
-import { useTheme } from "next-themes";
 
 import HamburgerMenu from "./ui/icons/HamburgerMenu";
 import CloseMenu from "./ui/icons/CloseMenu";
-import SocialMediaBar, { SocialMediaLinksType } from "./SocialMediaBar";
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconBrandTwitter,
-  IconBrandYoutube,
-} from "@tabler/icons-react";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
+import {
+  GitHubLogoIcon,
+  InstagramLogoIcon,
+  LinkedInLogoIcon,
+} from "@radix-ui/react-icons";
+import {
+  IconBrandYoutube,
+  IconBrandTiktok,
+  IconBrandX,
+} from "@tabler/icons-react";
+import Footer from "./Footer";
 
 interface MenuNewProps {
   links?: { label: string; href: string }[];
-  contactText?: string;
-  onThemeToggle?: () => void;
 }
 
 const defaultLinks = [
@@ -34,139 +34,78 @@ const defaultLinks = [
   { label: "Services", href: "#services" },
 ];
 
-const MenuNew: React.FC<MenuNewProps> = ({
-  links = defaultLinks,
+// رنگ اختصاصی برای هر سکشن (بر اساس id سکشن)
+const linkAccentClasses: Record<string, string> = {
+  hero: "text-(--blue-p-300)",
+  about: "text-(--purple-p-300)",
+  skills: "text-(--mint-p-300)",
+  services: "text-(--orange-p-200)",
+  contact: "text-(--pink-p-300)",
+};
 
-  onThemeToggle,
-}) => {
+const MenuNew: React.FC<MenuNewProps> = ({ links = defaultLinks }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeItem, setActiveItem] = useState<string>("hero");
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const { scrollY } = useScroll();
-  const { theme, setTheme } = useTheme();
 
-  // Refs برای محاسبه دقیق position و width
-  const linkRefs = useRef<(HTMLLIElement | null)[]>([]);
-  const [indicatorPosition, setIndicatorPosition] = useState(0);
-  const [indicatorWidth, setIndicatorWidth] = useState(0);
-
-  // IntersectionObserver برای activeIndex
+  // Scroll spy برای لینک‌ها
   useEffect(() => {
-    // Only observe sections we actually have in `links`
     const targets = links
-      .map((link) => {
-        const el = document.querySelector(link.href);
-        return el instanceof HTMLElement ? el : null;
-      })
+      .map((l) => document.querySelector(l.href))
       .filter(Boolean) as HTMLElement[];
 
-    if (targets.length === 0) return;
+    if (!targets.length) return;
 
-    // Use center window band so sections past "Skills" still activate
     const observer = new IntersectionObserver(
       (entries) => {
-        // pick the entry with the highest intersectionRatio that belongs to `links`
         let best: IntersectionObserverEntry | null = null;
-
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
-
-          const id = `#${(entry.target as HTMLElement).id}`;
-          const idx = links.findIndex((l) => l.href === id);
-          if (idx === -1) continue; // ignore sections not listed (e.g., #contact)
-
           if (!best || entry.intersectionRatio > best.intersectionRatio) {
             best = entry;
           }
         }
-
         if (best) {
-          const id = `#${(best.target as HTMLElement).id}`;
-          const idx = links.findIndex((l) => l.href === id);
-          if (idx !== -1) setActiveIndex(idx);
+          const id = (best.target as HTMLElement).id;
+          setActiveItem(id);
         }
       },
-      // Center-based band: element counts as active when its center is near viewport center
       {
         root: null,
-        // push the observation window inward so tall sections still activate as you scroll
         rootMargin: "-45% 0px -45% 0px",
         threshold: [0, 0.25, 0.5, 0.75, 1],
       }
     );
 
-    targets.forEach((el) => observer.observe(el));
+    targets.forEach((t) => observer.observe(t));
     return () => observer.disconnect();
   }, [links]);
 
-  // محاسبه position و width indicator بر اساس refs
-  // Measure indicator position/width whenever activeIndex changes
-  useEffect(() => {
-    const updateIndicator = () => {
-      const li = linkRefs.current[activeIndex];
-      if (!li) return;
-
-      const ulLeft = li.parentElement?.getBoundingClientRect().left ?? 0;
-      const liLeft = li.getBoundingClientRect().left;
-      setIndicatorPosition(liLeft - ulLeft);
-      setIndicatorWidth(li.offsetWidth ?? 0);
-    };
-
-    updateIndicator();
-    window.addEventListener("resize", updateIndicator);
-    return () => window.removeEventListener("resize", updateIndicator);
-  }, [activeIndex]);
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 200);
+  // Scroll spy برای contact
+  useMotionValueEvent(scrollY, "change", () => {
+    const contactSection = document.querySelector("#contact");
+    if (contactSection) {
+      const rect = contactSection.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * 0.5) {
+        setActiveItem("contact");
+      }
+    }
   });
-
-  //? theme
-  // const toggleTheme = () => {
-  //   const newTheme = theme === "light" ? "dark" : "light";
-  //   setTheme(newTheme);
-  //   if (onThemeToggle) onThemeToggle();
-  // };
-
-  const navVariants = {
-    full: { width: "100%", maxWidth: "1200px", transition: { duration: 0.3 } },
-    shrunk: { maxWidth: "1200px", transition: { duration: 0.3 } },
-  };
 
   const drawerVariants = {
     hidden: { opacity: 0, x: "100%" },
     visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
   };
-
   const overlayVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.3 } },
   };
 
-  const socialMediaLinks: SocialMediaLinksType[] = [
-    {
-      icon: <IconBrandGithub className="md:w-8 md:h-8" />,
-      link: "https://github.com",
-    },
-    {
-      icon: <IconBrandTwitter className="md:w-8 md:h-8" />,
-      link: "https://twitter.com",
-    },
-    {
-      icon: <IconBrandLinkedin className="md:w-8 md:h-8" />,
-      link: "https://linkedin.com",
-    },
-
-    {
-      icon: <IconBrandYoutube className="md:w-8 md:h-8" />,
-      link: "https://youtube.com",
-    },
-  ];
-
   return (
-    <>
-      <nav
-        aria-label="Main navigation"
+    <nav aria-label="Main navigation">
+      {/* Desktop / main bar */}
+      <div
         style={{
           background:
             "linear-gradient(to bottom, rgba(22, 22, 30,.5), rgba(22, 22, 30,.5))",
@@ -175,92 +114,96 @@ const MenuNew: React.FC<MenuNewProps> = ({
        
           `}
       >
-        <div className=" mx-auto flex items-center justify-between    w-7xl">
-          <Link href={"/"}>
-            <span className="font-bold text-2xl">DevSedaghat</span>
+        <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between">
+          {/* پس‌زمینه‌ی بلوری با progressive mask */}
+
+          {/* Logo */}
+          <Link href="/" className="relative z-10">
+            <span className="font-bold text-xl md:text-2xl tracking-tight">
+              DevSedaghat
+            </span>
           </Link>
 
-          <div className="hidden md:flex items-center relative ">
-            <ul className="flex items-center space-x-8 lg:space-x-20">
-              {links.map((link, index) => (
-                <motion.li
-                  key={link.href}
-                  ref={(el) => {
-                    linkRefs.current[index] = el;
-                  }}
-                  layout
-                >
-                  <Link
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      document.querySelector(link.href)?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
-                    }}
-                    className={`text-lg  transition-colors relative z-10 ${
-                      activeIndex === index
-                        ? " font-semibold"
-                        : "text-(--myneutral-100)/30 dark:text-(--neutral-light-300)/50 font-light"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.li>
-              ))}
+          {/* Desktop links */}
+          <div className="relative z-10 hidden md:flex items-center">
+            <ul className="flex items-center space-x-10 lg:space-x-20">
+              {links.map((link) => {
+                const slug = link.href.replace("#", "");
+                const isActive = activeItem === slug;
+                const isHovered = hoveredItem === slug;
+                const hasHover = hoveredItem !== null;
+                const accent = linkAccentClasses[slug] ?? "text-white";
+
+                let stateClasses = "";
+
+                if (isHovered) {
+                  // لینک hover شده → رنگ اختصاصی + پررنگ
+                  stateClasses = `${accent} font-semibold`;
+                } else if (isActive && !hasHover) {
+                  // فعال، وقتی چیزی hover نیست
+                  stateClasses = `${accent} font-semibold`;
+                } else if (hasHover) {
+                  // یه لینک دیگه hover شده → این کم‌رنگ بشه
+                  stateClasses = "text-white/25 font-light";
+                } else {
+                  // حالت عادی بدون hover
+                  stateClasses = "text-white/50 font-light";
+                }
+
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document.querySelector(link.href)?.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      }}
+                      onMouseEnter={() => setHoveredItem(slug)}
+                      onMouseLeave={() => setHoveredItem(null)}
+                      className={`text-lg  transition-all duration-500 ${stateClasses}`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
-
-            {/* //? theme */}
-            {/* INDICATOR پایین لینک‌ها، با translateX + width داینامیک */}
-            {/* <motion.div
-              className="absolute -bottom-1 h-1 bg-(--my-primary-red) rounded-full" // bottom-[-4px] برای پایین لینک‌ها
-              style={{ left: 0 }} 
-              animate={{
-                x: indicatorPosition, 
-                width: indicatorWidth,
-              }}
-              
-            /> */}
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Desktop CTA */}
+          <div className="relative z-10 hidden md:flex items-center space-x-4">
             <InteractiveHoverButton>
-              <Link href={"#contact"}>Let&apos;s Talk</Link>
+              <Link href="#contact">Let&apos;s Talk</Link>
             </InteractiveHoverButton>
-            {/* //? theme */}
-            {/* <button
-              className="p-[3px] relative cursor-pointer"
-              onClick={toggleTheme}
-            >
-              <div className="absolute inset-0 bg-linear-to-r from-(--my-accent-red) to-(--my-primary-red) rounded-full" />
-              <div className=" p-2 border rounded-md  relative group transition duration-200 text-white hover:bg-(--bg-light)">
-                {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
-              </div>
-            </button> */}
           </div>
 
-          <div className="md:hidden flex items-center space-x-4">
-            {isOpen ? (
-              ""
-            ) : (
-              <span className="text-lg font-medium">
-                {links[activeIndex]?.label || "Hero"}
+          {/* Mobile menu toggle */}
+          <div className="relative z-10 md:hidden flex items-center space-x-4">
+            {!isOpen && (
+              <span className="text-base font-medium text-white/80">
+                {links.find((l) => l.href.replace("#", "") === activeItem)
+                  ?.label || (activeItem === "contact" ? "Let's Talk" : "Hero")}
               </span>
             )}
-
-            <button onClick={() => setIsOpen(!isOpen)}>
-              <HamburgerMenu className="w-8 h-8 cursor-pointer" />
+            <button
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <HamburgerMenu className="w-7 h-7 cursor-pointer" />
             </button>
           </div>
         </div>
-      </nav>
+      </div>
 
-      {/* Overlay */}
+      {/* Mobile overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed inset-0 backdrop-blur-sm bg-black/30 z-60"
+            className="md:hidden  fixed inset-0 backdrop-blur-md bg-black/30 z-50"
             variants={overlayVariants}
             initial="hidden"
             animate="visible"
@@ -270,74 +213,89 @@ const MenuNew: React.FC<MenuNewProps> = ({
         )}
       </AnimatePresence>
 
-      {/* Drawer */}
+      {/* Mobile drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed top-0 right-0 h-full w-5/6    bg-white/90 dark:bg-[#4444441a] backdrop-blur-lg shadow-xl z-70 overflow-y-auto rounded-bl-4xl rounded-tl-4xl flex flex-col"
+            className="md:hidden fixed top-0 right-0 h-full w-5/6 bg-white/1 backdrop-blur-xl shadow-xl z-80  rounded-bl-4xl rounded-tl-4xl flex flex-col"
             variants={drawerVariants}
             initial="hidden"
             animate="visible"
             exit="hidden"
           >
-            <div className="w-full flex justify-end my-6 px-4">
-              <div className="flex items-center justify-between grow ">
-                {/* //? theme */}
-                {/* <button
-                  className="p-[3px] relative cursor-pointer"
-                  onClick={toggleTheme}
-                >
-                  <div className="absolute inset-0 bg-linear-to-r from-(--my-accent-red) to-(--my-primary-red) rounded-full" />
-                  <div className="p-2 rounded-md  relative group transition duration-200 text-white hover:bg-transparent">
-                    {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
-                  </div>
-                </button> */}
-
-                <InteractiveHoverButton className="grow mx-4 ">
-                  <Link href={"#contact"} onClick={() => setIsOpen(false)}>
-                    Let&apos;s Talk
-                  </Link>
-                </InteractiveHoverButton>
-              </div>
+            <div className="w-full flex justify-end items-center gap-3 my-6 px-4">
+              <InteractiveHoverButton className="grow mx-2">
+                <Link href="#contact" onClick={() => setIsOpen(false)}>
+                  Let&apos;s Talk
+                </Link>
+              </InteractiveHoverButton>
               <button
-                className="cursor-pointer "
+                className="cursor-pointer"
                 onClick={() => setIsOpen(false)}
+                aria-label="Close menu"
               >
-                <CloseMenu className="size-8 " />
+                <CloseMenu className="size-8" />
               </button>
             </div>
 
-            <ul className="flex  grow   items-end flex-col space-y-10 p-6  ">
-              {links.map((link, index) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => {
-                      setActiveIndex(index);
-                      setIsOpen(false);
-                    }}
-                    className={`text-lg  transition-colors ${
-                      activeIndex === index
-                        ? "text-gray-800 dark:text-white  font-semibold"
-                        : "text-black/30 dark:text-white/30 font-light"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <SocialMediaBar socials={socialMediaLinks} />
+            <ul className="flex grow items-end flex-col space-y-8 p-6">
+              {links.map((link) => {
+                const slug = link.href.replace("#", "");
+                const isActive = activeItem === slug;
+                const accent = linkAccentClasses[slug] ?? "text-white";
 
-            <div className="w-full text-center px-6 py-4 mt-8 border-t">
-              <h6 className="text-white/20 text-sm font-bold tracking-wider">
+                const colorClasses = isActive
+                  ? `${accent} font-semibold`
+                  : "font-light text-black/40 dark:text-white/40";
+
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={() => {
+                        setIsOpen(false);
+                        document.querySelector(link.href)?.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      }}
+                      className={`text-lg transition-all duration-500 ${colorClasses}`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+
+            {/* Social links */}
+            {/* <nav
+              aria-label="Social links"
+              className="flex justify-center w-full space-x-6 md:space-x-6 p-6"
+            >
+              <GitHubLogoIcon className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
+              <LinkedInLogoIcon className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
+              <IconBrandYoutube className="size-7 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
+              <InstagramLogoIcon className="size-7 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
+              <IconBrandTiktok className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
+              <IconBrandX className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
+            </nav>
+
+            <div className="h-px w-full bg-linear-to-r from-transparent via-neutral-500 to-transparent dark:via-neutral-500" />
+            <div className="w-full text-center  py-4 mb-4">
+              <h2 className="text-white/30 text-xs font-semibold leading-normal tracking-widest uppercase">
                 ©2025 DevSedaghat. All rights reserved.
-              </h6>
-            </div>
+              </h2>
+            </div> */}
+
+            <Footer
+              className="space-x-6 p-4 md:p-6 md:space-x-12 "
+              textStyle={"tracking-wider md:tracking-widest py-4 "}
+            />
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </nav>
   );
 };
 

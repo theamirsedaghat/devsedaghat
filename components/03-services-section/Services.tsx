@@ -87,122 +87,121 @@ const services = [
   },
 ];
 
-export function Services() {
+export default function Services() {
   return (
-    <section id="services">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 md:px-6 lg:px-8">
-        <header className="space-y-3 w-full text-center">
-          <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--pink-p-300)  py-12 tracking-tight uppercase">
-            <Highlighter
-              action="underline"
-              isView
-              strokeWidth={2}
-              iterations={3}
-              color="var(--pink-p-300)"
-              padding={12}
-              animationDuration={1000}
-            >
-              Why me 🎯
-            </Highlighter>
-          </h2>
-          <h2 className="font-headline text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
-            How I help founders, teams, and learners.
-          </h2>
-          <p className="font-body text-sm md:text-base text-foreground/70">
-            I combine product thinking, frontend development, and tech education
-            to help you ship real products — and actually understand the code
-            behind them.
-          </p>
-        </header>
-
-        <div className="grid w-full  grid-cols-1 gap-4 lg:grid-cols-3">
-          <WobbleCard containerClassName="col-span-1 lg:col-span-2 min-h-[260px] bg-[var(--myneutral-300)]/80">
-            <div className="max-w-xl">
-              <h3 className="text-left text-balance font-headline text-base md:text-xl lg:text-2xl font-semibold tracking-[-0.02em] text-white">
-                How I can help in practice
-              </h3>
-              <p className="mt-3 text-left font-body text-sm md:text-base leading-relaxed text-neutral-100/80">
-                I work with founders, small teams, and creators to bring ideas
-                to life. From frontend and product thinking to technical
-                decisions, I help build things that are both shippable and
-                maintainable.
-              </p>
-              <ul className="mt-4 space-y-2 text-left text-sm md:text-base text-neutral-100/80">
-                <li>• Frontend &amp; full-stack development for MVPs.</li>
-                <li>• UI/UX reviews, design refinement, and motion passes.</li>
-                <li>• Guidance on choosing stacks and integrating AI.</li>
-              </ul>
-              <p className="mt-4 text-xs md:text-sm text-neutral-200/80">
-                Building something in this space? The contact section is the
-                best way to reach me.
-              </p>
-            </div>
-
-            <div className="pointer-events-none absolute -right-6 -bottom-6 hidden h-40 w-40 rounded-3xl bg-[conic-gradient(from_180deg,var(--blue-p-300),var(--mint-p-300),transparent_70%)] opacity-80 blur-xl md:block" />
-          </WobbleCard>
-
-          <WobbleCard containerClassName="col-span-1 min-h-[220px] bg-orange-500/70">
-            <div className="max-w-xs">
-              <h3 className="font-headline  text-left text-balance text-base md:text-lg lg:text-xl font-semibold tracking-[-0.02em] text-white">
-                For founders &amp; teams
-              </h3>
-              <p className="mt-3 text-left font-body text-sm md:text-base text-neutral-100/85">
-                Need a first version of your product, not a giant agency? I help
-                you move from idea and Figma into a working MVP with a clear
-                scope and realistic decisions.
-              </p>
-            </div>
-          </WobbleCard>
-
-          <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg- min-h-[240px] lg:min-h-[220px] bg-violet-700/70">
-            <div className="max-w-xl">
-              <h3 className="font-headline text-left text-balance text-base md:text-lg lg:text-xl font-semibold tracking-[-0.02em] text-white">
-                For learners &amp; developers
-              </h3>
-              <p className="mt-3 text-left font-body text-sm md:text-base text-neutral-100/85">
-                If you found me through content, this is where we go deeper:
-                real projects, honest feedback, and a roadmap that fits your
-                goals — not just another playlist.
-              </p>
-              <p className="mt-3 text-left text-xs md:text-sm text-neutral-100/80">
-                1:1 mentoring, code reviews, and project guidance for serious
-                learners who want to ship.
-              </p>
-            </div>
-          </WobbleCard>
-        </div>
-
-        <header className="space-y-3 w-full text-center">
-          <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--orange-p-300)  py-12 tracking-tight uppercase">
-            <Highlighter
-              action="underline"
-              isView
-              strokeWidth={2}
-              iterations={3}
-              color="var(--orange-p-300)"
-              padding={12}
-              animationDuration={1000}
-            >
-              Services 🚀
-            </Highlighter>
-          </h2>
-          <h2 className="font-headline text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
-            How I help founders, teams, and learners.
-          </h2>
-          <p className="font-body text-sm md:text-base text-foreground/70">
-            I combine product thinking, frontend development, and tech education
-            to help you ship real products — and actually understand the code
-            behind them.
-          </p>
-        </header>
-        <div>
-          <BentoGrid className="lg:grid-rows-3">
-            {services.map((service) => (
-              <BentoCard key={service.name} {...service} />
-            ))}
-          </BentoGrid>
-        </div>
+    <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 md:px-6 lg:px-8">
+      <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--orange-p-300)  tracking-tight uppercase ">
+        <Highlighter
+          action="underline"
+          isView
+          strokeWidth={2}
+          iterations={3}
+          color="var(--orange-p-300)"
+          padding={12}
+          animationDuration={1000}
+        >
+          Services 🚀
+        </Highlighter>
+      </h2>
+      <div className="space-y-4 w-full text-center">
+        <p className="font-headline text-center text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
+          How I help founders, teams, and learners.
+        </p>
+        <p className="font-body text-center text-sm md:text-base text-foreground/70">
+          I combine product thinking, frontend development, and tech education
+          to help you ship real products — and actually understand the code
+          behind them.
+        </p>
       </div>
-    </section>
+
+      <div>
+        <BentoGrid className="lg:grid-rows-3">
+          {services.map((service) => (
+            <BentoCard key={service.name} {...service} />
+          ))}
+        </BentoGrid>
+      </div>
+
+      <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--pink-p-300)  tracking-tight uppercase">
+        <Highlighter
+          action="underline"
+          isView
+          strokeWidth={2}
+          iterations={3}
+          color="var(--pink-p-300)"
+          padding={12}
+          animationDuration={1000}
+        >
+          Why me 🎯
+        </Highlighter>
+      </h2>
+
+      <div className="space-y-4 w-full text-center">
+        <p className="font-headline text-center text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
+          How I help founders, teams, and learners.
+        </p>
+        <p className="font-body text-center text-sm md:text-base text-foreground/70">
+          I combine product thinking, frontend development, and tech education
+          to help you ship real products — and actually understand the code
+          behind them.
+        </p>
+      </div>
+
+      <div className="grid w-full  grid-cols-1 gap-4 lg:grid-cols-3">
+        <WobbleCard containerClassName="col-span-1 lg:col-span-2 min-h-[260px] bg-[var(--myneutral-300)]/80">
+          <div className="max-w-xl">
+            <h3 className="text-left text-balance font-headline text-base md:text-xl lg:text-2xl font-semibold tracking-[-0.02em] text-white">
+              How I can help in practice
+            </h3>
+            <p className="mt-3 text-left font-body text-sm md:text-base leading-relaxed text-neutral-100/80">
+              I work with founders, small teams, and creators to bring ideas to
+              life. From frontend and product thinking to technical decisions, I
+              help build things that are both shippable and maintainable.
+            </p>
+            <ul className="mt-4 space-y-2 text-left text-sm md:text-base text-neutral-100/80">
+              <li>• Frontend &amp; full-stack development for MVPs.</li>
+              <li>• UI/UX reviews, design refinement, and motion passes.</li>
+              <li>• Guidance on choosing stacks and integrating AI.</li>
+            </ul>
+            <p className="mt-4 text-xs md:text-sm text-neutral-200/80">
+              Building something in this space? The contact section is the best
+              way to reach me.
+            </p>
+          </div>
+
+          <div className="pointer-events-none absolute -right-6 -bottom-6 hidden h-40 w-40 rounded-3xl bg-[conic-gradient(from_180deg,var(--blue-p-300),var(--mint-p-300),transparent_70%)] opacity-80 blur-xl md:block" />
+        </WobbleCard>
+
+        <WobbleCard containerClassName="col-span-1 min-h-[220px] bg-orange-500/70">
+          <div className="max-w-xs">
+            <h3 className="font-headline  text-left text-balance text-base md:text-lg lg:text-xl font-semibold tracking-[-0.02em] text-white">
+              For founders &amp; teams
+            </h3>
+            <p className="mt-3 text-left font-body text-sm md:text-base text-neutral-100/85">
+              Need a first version of your product, not a giant agency? I help
+              you move from idea and Figma into a working MVP with a clear scope
+              and realistic decisions.
+            </p>
+          </div>
+        </WobbleCard>
+
+        <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg- min-h-[240px] lg:min-h-[220px] bg-violet-700/70">
+          <div className="max-w-xl">
+            <h3 className="font-headline text-left text-balance text-base md:text-lg lg:text-xl font-semibold tracking-[-0.02em] text-white">
+              For learners &amp; developers
+            </h3>
+            <p className="mt-3 text-left font-body text-sm md:text-base text-neutral-100/85">
+              If you found me through content, this is where we go deeper: real
+              projects, honest feedback, and a roadmap that fits your goals —
+              not just another playlist.
+            </p>
+            <p className="mt-3 text-left text-xs md:text-sm text-neutral-100/80">
+              1:1 mentoring, code reviews, and project guidance for serious
+              learners who want to ship.
+            </p>
+          </div>
+        </WobbleCard>
+      </div>
+    </div>
   );
 }

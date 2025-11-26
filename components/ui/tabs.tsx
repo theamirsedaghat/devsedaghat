@@ -42,7 +42,7 @@ export const Tabs = ({
       <div
         className={cn(
           "flex flex-row items-center justify-start sm:justify-center gap-2 sm:gap-3 md:gap-6",
-          "w-full overflow-x-auto scrollbar-hide no-visible-scrollbar pr-8",
+          "w-full overflow-x-auto scrollbar-hide no-visible-scrollbar pr-16",
           "snap-x snap-mandatory ",
           containerClassName
         )}
@@ -58,7 +58,7 @@ export const Tabs = ({
               onMouseLeave={() => setHovering(false)}
               className={cn(
                 "relative px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm md:text-base font-medium rounded-xs transition-all shrink-0",
-                "snap-center",
+                "snap-center cursor-pointer",
                 tabClassName
               )}
               style={{ transformStyle: "preserve-3d" }}
@@ -91,8 +91,8 @@ export const Tabs = ({
         })}
       </div>
       <div
-        className="absolute top-0 right-0 h-full w-20 pointer-events-none 
-                  bg-linear-to-l from-background via-background/80 to-transparent md:hidden"
+        className="absolute top-0 right-0 py-6 w-24 pointer-events-none 
+                  bg-linear-to-l from-background  to-transparent md:hidden"
       >
         <div className="w-1/3 bg-transparent h-full top-0 right-0 absolute backdrop-blur-xs backdrop-opacity-80" />
       </div>

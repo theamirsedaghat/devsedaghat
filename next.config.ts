@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
 
   images: {
     remotePatterns: [{ protocol: "https", hostname: "**" }],
+    qualities: [75, 100],
   },
   experimental: {
     optimizePackageImports: ["some-package"],

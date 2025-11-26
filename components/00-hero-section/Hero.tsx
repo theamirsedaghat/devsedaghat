@@ -8,10 +8,7 @@ import { FlipWords } from "../ui/flip-words";
 
 const Hero = () => {
   return (
-    <section
-      id="hero"
-      className="relative my-5   flex items-start md:items-center justify-center overflow-hidden lg:overflow-visible"
-    >
+    <div className="relative my-5 flex items-start md:items-center justify-center overflow-hidden lg:overflow-visible">
       <div
         id="bg-absolute"
         className="pointer-events-none absolute inset-0   max-w-7xl  md:w-[90%] xl:mx-0 px-4 sm:px-6 md:px-8 lg:px-0
@@ -30,9 +27,7 @@ const Hero = () => {
                         pt-18 lg:py-20 md:pb-36
                         lg:min-h-[90vh] lg:flex-row lg:justify-between "
         >
-          {/* بخش متن و دکمه‌ها */}
           <div className="flex flex-col items-center justify-center  lg:items-start text-center lg:text-left space-y-6  sm:space-y-10 md:space-y-12 w-full   sm:max-w-lg md:max-w-2xl  lg:w-full  ">
-            {/* سلام و نام */}
             <div className="space-y-4  sm:space-y-6 ">
               <p className="text-base font-medium text-foreground/70 tracking-widest">
                 👋 Hey, I&apos;m
@@ -168,16 +163,16 @@ const Hero = () => {
               />
             </svg>
 
-            <aside className="z-40">
-              <Image
-                src={"/HeroImage.png"}
-                alt="Portrait of Amir Sedaghat (DevSedaghat) - tech educator, full-stack developer, and SaaS builder."
-                width={400}
-                height={400}
-                priority
-                className="w-84 lg:w-100"
-              />
-            </aside>
+            <Image
+              src={"/HeroImage.png"}
+              alt="Portrait of Amir Sedaghat (DevSedaghat) - tech educator, full-stack developer, and SaaS builder."
+              width={400}
+              height={400}
+              priority
+              quality={100}
+              className="w-84 lg:w-100 z-40"
+            />
+
             <Terminal
               startOnView={true}
               className="z-40 absolute bottom-2  left-[15%] md:left-[30%] sm:left-48 w-70 "
@@ -185,14 +180,14 @@ const Hero = () => {
               <TypingAnimation delay={0}>
                 &gt; npx DevSedaghat@latest init
               </TypingAnimation>
-              <AnimatedSpan delay={2500} className="text-blue-500">
+              <AnimatedSpan delay={2500} className="text-blue-400">
                 ✔ Building creative interfaces...
               </AnimatedSpan>
-              <AnimatedSpan delay={3800} className="text-blue-500">
+              <AnimatedSpan delay={3800} className="text-blue-400">
                 ✔ Integrating design & motion...
               </AnimatedSpan>
 
-              <AnimatedSpan delay={5000} className="text-green-500">
+              <AnimatedSpan delay={5000} className="text-green-400">
                 ✨ Ready to deploy
               </AnimatedSpan>
             </Terminal>
@@ -201,7 +196,7 @@ const Hero = () => {
           <div className="h-[400px] md:hidden"></div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

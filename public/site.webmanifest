@@ -1,0 +1,14 @@
+{
+  "name": "DevSedaghat - Amir Sedaghat",
+  "short_name": "DevSedaghat",
+  "theme_color": "#16161e",
+  "background_color": "#16161e",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -64,7 +64,7 @@ export function ScrollToTopButton({
       aria-label="Scroll to top"
       className={cn(
         "fixed z-70",
-        "bottom-6 right-4 md:bottom-8 md:right-8",
+        "bottom-8 right-4  md:right-8",
         "inline-flex items-center justify-center rounded-full",
         "h-10 w-10 md:h-12 md:w-12 cursor-pointer group overflow-hidden",
         // گلس‌مورفیسم خیلی سبک

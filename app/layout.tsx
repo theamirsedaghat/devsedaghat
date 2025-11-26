@@ -3,10 +3,7 @@ import { Poppins, Roboto, Nunito } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themes-provider";
-import TopNavbar from "@/components/TopNavbar";
-
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
-import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -107,6 +104,9 @@ export const metadata: Metadata = {
     icon: "/browser-logo.svg",
     apple: "/icon.png",
   },
+};
+export const viewport = {
+  themeColor: "#16161e",
 };
 
 export default function RootLayout({
@@ -212,14 +212,12 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${roboto.variable} ${nunito.variable} antialiased bg-background text-foreground`}
       >
-        {/* <ProgressiveBlur height="20%" position="top" /> */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <TopNavbar />
           {children}
           <ScrollToTopButton />
         </ThemeProvider>

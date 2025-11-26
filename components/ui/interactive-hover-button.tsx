@@ -10,14 +10,14 @@ export function InteractiveHoverButton({
   return (
     <button
       className={cn(
-        "group  relative w-auto cursor-pointer overflow-hidden rounded-md border py-2 px-4 text-center font-semibold",
+        "group  relative w-auto cursor-pointer overflow-hidden rounded-md border py-2 px-4 text-center font-semibold ",
         className
       )}
       {...props}
     >
       <div className="flex items-center gap-2 justify-center">
-        <div className="bg-(--text-dark-100) h-2 w-2 rounded-full transition-all duration-300 group-hover:scale-[100.8]"></div>
-        <span className="inline-block transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+        <div className="bg-(--text-dark-100) h-2 w-2 rounded-full transition-all duration-500 group-hover:scale-[100.8]"></div>
+        <span className="inline-block transition-all duration-500 group-hover:translate-x-12 group-hover:opacity-0">
           {children}
         </span>
       </div>

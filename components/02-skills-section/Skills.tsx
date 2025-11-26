@@ -3,8 +3,8 @@ import { TabSkills } from "./TabSkills";
 
 const Skills = () => {
   return (
-    <section id="skills">
-      <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--mint-p-300)  py-12 tracking-tight uppercase">
+    <div className="my-16">
+      <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--mint-p-300)  tracking-tight uppercase">
         <Highlighter
           action="underline"
           isView
@@ -18,7 +18,7 @@ const Skills = () => {
         </Highlighter>
       </h2>
       <TabSkills />
-    </section>
+    </div>
   );
 };
 

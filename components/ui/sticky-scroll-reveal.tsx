@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 
 const backgroundColors = [
   "var(--bg-dark)", // slate-900
-  "#000000", // black
-  "#171717", // neutral-900
+  "#2c2838b1",
+  "#293b36a8",
 ];
 
 const linearGradients = [
@@ -70,13 +70,13 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="relative flex h-120 justify-center  md:space-x-10 text-center md:text-left overflow-y-auto rounded-md p-10"
+      className="relative flex h-130 justify-center  md:space-x-10 text-center md:text-left overflow-y-auto rounded-md p-10"
       ref={ref}
     >
       <div className="relative flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-20">
+            <div key={item.title + index} className="mb-20 mt-12 md:my-24">
               <motion.h2
                 initial={{ opacity: 0 }}
                 animate={{ opacity: activeCard === index ? 1 : 0.3 }}
@@ -93,7 +93,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
               </motion.p>
             </div>
           ))}
-          <div className="h-40" />
+          <div className="h-44" />
         </div>
       </div>
 
@@ -101,7 +101,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
       <div
         style={{ background: backgroundGradient }}
         className={cn(
-          "sticky top-10 hidden h-60 w-80 overflow-hidden rounded-md bg-white lg:block",
+          "sticky top-16 hidden h-64 w-80 overflow-hidden rounded-md bg-white lg:block",
           contentClassName
         )}
       >

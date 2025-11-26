@@ -22,7 +22,7 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ className }) => {
               <NumberTicker
                 value={5000}
                 startValue={4000}
-                delay={0.2}
+                delay={0.4}
                 decimalPlaces={0}
                 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground text-center "
               />
@@ -65,9 +65,9 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ className }) => {
             <div className="flex items-baseline gap-1">
               <NumberTicker
                 value={2000}
-                startValue={500}
+                startValue={1000}
                 decimalPlaces={0}
-                delay={0.6}
+                delay={0.5}
                 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground"
               />
               <span className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground">

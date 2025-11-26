@@ -27,7 +27,6 @@ export function TabSkills() {
             Tech Stack & Tools
           </h3>
 
-          {/* ارتفاع منعطف + اسکرول داخلی امن */}
           <div className="mt-1 sm:mt-2 md:mt-3 flex-1 min-h-0">
             <div className="relative h-full">
               <div className="h-full overflow-auto scrollbar-hide no-visible-scrollbar py-12 lg:py-0">
@@ -133,7 +132,6 @@ export function TabSkills() {
                 </div>
               </div>
 
-              {/* گرادیانت پایین برای هینت اسکرول */}
               <div
                 className="absolute bottom-0 w-full h-16 pointer-events-none 
                   bg-linear-to-t from-background via-background/90 to-transparent lg:hidden"
@@ -141,7 +139,6 @@ export function TabSkills() {
                 <div className="h-2/3 bg-transparent w-full bottom-0 absolute backdrop-blur-[2px] backdrop-opacity-80" />
               </div>
 
-              {/* گرادیانت بالا */}
               <div
                 className="absolute top-0 w-full h-12 pointer-events-none 
                   bg-linear-to-b from-background via-background/70 to-transparent lg:hidden"
@@ -159,7 +156,7 @@ export function TabSkills() {
       value: "products",
       tabColor: "var(--yellow-p-300)",
       content: (
-        <div className="w-full h-full overflow-hidden relative rounded-2xl p-4 sm:p-6 md:p-8 text-foreground bg-gradient-to-br from-purple-500/20 via-purple-700/40 to-fuchsia-700/60">
+        <div className="w-full h-full overflow-hidden relative rounded-2xl p-4 sm:p-6 md:p-8 text-foreground bg-linear-to-br from-background  to-(--yellow-p-300)/40 backdrop-blur-lg">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-headline mb-4">
             Products I Design & Build
           </h3>
@@ -202,7 +199,7 @@ export function TabSkills() {
       tabColor: "var(--pink-p-400)",
 
       content: (
-        <div className="w-full h-full overflow-hidden relative rounded-2xl p-4 sm:p-6 md:p-8 bg-gradient-to-br from-rose-400/80 via-pink-500/80 to-orange-400/80 text-foreground">
+        <div className="w-full h-full overflow-hidden relative rounded-2xl p-4 sm:p-6 md:p-8 bg-linear-to-br from-background  to-(--pink-p-400)/40 backdrop-blur-lg text-foreground">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-headline mb-4">
             Experiments & Playground
           </h3>
@@ -245,7 +242,7 @@ export function TabSkills() {
       tabColor: "var(--orange-p-400)",
 
       content: (
-        <div className="w-full h-full overflow-hidden relative rounded-2xl p-4 sm:p-6 md:p-8 bg-gradient-to-br from-[--blue-p-300] to-[--purple-p-300] text-foreground">
+        <div className="w-full h-full overflow-hidden relative rounded-2xl p-4 sm:p-6 md:p-8 bg-linear-to-br from-background  to-(--orange-p-400)/40 backdrop-blur-lg  text-foreground">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-headline mb-4">
             Teaching Through Content
           </h3>
@@ -286,7 +283,7 @@ export function TabSkills() {
       tabColor: "var(--purple-p-400)",
 
       content: (
-        <div className="w-full h-full overflow-hidden relative rounded-2xl p-4 sm:p-6 md:p-8 bg-gradient-to-br from-indigo-800 via-purple-800 to-sky-500 text-foreground">
+        <div className="w-full h-full overflow-hidden relative rounded-2xl p-4 sm:p-6 md:p-8 bg-linear-to-br from-background  to-(--purple-p-400)/40 backdrop-blur-lg text-foreground">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-headline mb-4">
             Long-Term Vision
           </h3>
@@ -324,7 +321,7 @@ export function TabSkills() {
   ];
 
   return (
-    <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 perspective-[1000px] relative flex flex-col items-start justify-center mb-16">
+    <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 perspective-[1000px] relative flex flex-col items-start justify-center my-16">
       <Tabs tabs={tabs} />
     </div>
   );
