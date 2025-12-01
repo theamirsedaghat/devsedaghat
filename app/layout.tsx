@@ -26,15 +26,15 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title:
-    "DevSedaghat - Amir Sedaghat | Full-Stack Innovator, Tech Educator & Content Creator",
+    "Amir Sedaghat | Full-Stack Innovator, Tech Educator & Content Creator",
   description:
-    "Discover the world of Amir Sedaghat (DevSedaghat), a full-stack innovator crafting seamless web and mobile experiences with React, Next.js, React Native, and UI/UX mastery. Dive into empowering tutorials, in-depth courses, real-world projects, and insightful strategies designed to elevate aspiring developers. Join a journey toward building impactful tech communities, fostering trust, and paving the way for groundbreaking SaaS ventures that attract visionary investors.",
+    "Discover the world of Amir Sedaghat (TheAmirSedaghat), a full-stack innovator crafting seamless web and mobile experiences with React, Next.js, React Native, and UI/UX mastery. Dive into empowering tutorials, in-depth courses, real-world projects, and insightful strategies designed to elevate aspiring developers. Join a journey toward building impactful tech communities, fostering trust, and paving the way for groundbreaking SaaS ventures that attract visionary investors.",
   keywords: [
-    "DevSedaghat",
     "Amir Sedaghat",
-    "Full-Stack Developer",
+    "DevSedaghat",
     "Tech Educator",
     "Content Creator",
+    "Full-Stack Developer",
     "Dev Sedaghat",
     "UI/UX Designer",
     "React Developer",
@@ -45,17 +45,17 @@ export const metadata: Metadata = {
     "SaaS Founder Visionary",
     "Tech Community Leader",
     "Personal Branding in Tech",
-    "YouTube DevSedaghat",
-    "LinkedIn DevSedaghat",
-    "Twitter DevSedaghat",
+    "YouTube Amir Sedaghat",
+    "LinkedIn Amir Sedaghat",
+    "Twitter Amir Sedaghat",
     "Sedaghat",
   ],
-  authors: [{ name: "Amir Sedaghat", url: "https://devsedaghat.com" }],
-  creator: "Amir Sedaghat (DevSedaghat)",
-  publisher: "DevSedaghat",
-  metadataBase: new URL("https://devsedaghat.com"),
+  authors: [{ name: "Amir Sedaghat", url: "https://amirsedaghat.com" }],
+  creator: "Amir Sedaghat (TheAmirSedaghat)",
+  publisher: "Amir Sedaghat",
+  metadataBase: new URL("https://amirsedaghat.com"),
   alternates: {
-    canonical: "https://devsedaghat.com",
+    canonical: "https://amirsedaghat.com",
   },
   robots: {
     index: true,
@@ -69,11 +69,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title:
-      "DevSedaghat - Amir Sedaghat | Full-Stack Innovator, Tech Educator & Content Creator",
+    title: "Amir Sedaghat | Tech Educator & Content Creator",
     description:
       "Embark on an inspiring adventure with Amir Sedaghat (DevSedaghat), where full-stack expertise meets transformative education. Explore cutting-edge projects in web, UI/UX, and mobile development, alongside tutorials and courses that empower the next generation of tech leaders. Building credibility, community, and future SaaS empires – ready to innovate and invest together?",
-    url: "https://devsedaghat.com",
+    url: "https://amirsedaghat.com",
     siteName: "DevSedaghat Portfolio",
     images: [
       {
@@ -82,7 +81,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "DevSedaghat - Portfolio of Amir Sedaghat, Full-Stack Innovator and Tech Educator",
+        alt: "Amir Sedaghat - Portfolio of Amir Sedaghat, Tech Educator",
       },
     ],
     locale: "en_US",
@@ -91,11 +90,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "DevSedaghat - Amir Sedaghat | Full-Stack Innovator, Tech Educator & Content Creator",
+      "Amir Sedaghat | Full-Stack Innovator, Tech Educator & Content Creator",
     description:
-      "Unlock the secrets of full-stack development and tech education with Amir Sedaghat (DevSedaghat). From React Native mobile apps to UI/UX masterpieces, get tutorials, courses, and insights that build trust and inspire innovation. Follow for daily empowerment and SaaS dreams!",
+      "Unlock the secrets of full-stack development and tech education with Amir Sedaghat (TheAmirSedaghat). From React Native mobile apps to UI/UX masterpieces, get tutorials, courses, and insights that build trust and inspire innovation. Follow for daily empowerment and SaaS dreams!",
     images: ["/og-image.png"],
-    creator: "@devsedaghat",
+    creator: "@theamirsedaghat",
   },
   icons: {
     // TODO: favicon و apple icon رو در public/ بگذار
@@ -127,10 +126,10 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Person",
-                  "@id": "https://devsedaghat.com/#person",
+                  "@id": "https://amirsedaghat.com/#person",
                   name: "Amir Sedaghat",
                   alternateName: "DevSedaghat",
-                  url: "https://devsedaghat.com",
+                  url: "https://amirsedaghat.com",
                   image: {
                     "@type": "ImageObject",
                     // TODO: عکس پروفایل حرفه‌ای آپلود کن (800x800)
@@ -141,46 +140,42 @@ export default function RootLayout({
                       "Amir Sedaghat - Full-Stack Innovator & Tech Educator",
                   },
                   sameAs: [
-                    "https://www.linkedin.com/in/devsedaghat",
-                    "https://x.com/devsedaghat",
-                    "https://youtube.com/@DevSedaghat",
-                    "https://github.com/devsedaghat",
-                    "https://instagram.com/devsedaghat",
+                    "https://www.linkedin.com/in/amirsedaghat",
+                    "https://x.com/TheAmirSedaghat",
+                    "https://youtube.com/@TheAmirSedaghat",
+                    "https://github.com/TheAmirSedaghat",
+                    "https://instagram.com/TheAmirSedaghat",
                   ],
-                  jobTitle:
-                    "Full-Stack Innovator, Tech Educator & Content Creator",
+                  jobTitle: "Tech Educator & Content Creator",
                   worksFor: {
                     "@type": "Organization",
-                    "@id": "https://devsedaghat.com/#organization",
+                    "@id": "https://amirsedaghat.com/#organization",
                   },
 
                   knowsAbout: [
                     "Full-Stack Development",
-                    "React.js",
-                    "Next.js",
-                    "React Native",
                     "UI/UX Design",
                     "SaaS Product Development",
                     "Technical Content Creation",
                   ],
                   description:
-                    "Amir Sedaghat (DevSedaghat) is a passionate full-stack innovator and tech educator dedicated to empowering developers through high-quality tutorials, courses, and open-source projects. With expertise in React, Next.js, React Native, and UI/UX, he builds scalable applications while teaching modern web development. Aspiring SaaS founder with a vision to create unicorn-level impact.",
+                    "Amir Sedaghat (TheAmirSedaghat) is a passionate full-stack innovator and tech educator dedicated to empowering developers through high-quality tutorials, courses, and open-source projects. With expertise in React, Next.js, React Native, and UI/UX, he builds scalable applications while teaching modern web development. Aspiring SaaS founder with a vision to create unicorn-level impact.",
                 },
                 {
                   "@type": "Organization",
-                  "@id": "https://devsedaghat.com/#organization",
+                  "@id": "https://amirsedaghat.com/#organization",
                   name: "DevSedaghat",
-                  url: "https://devsedaghat.com",
+                  url: "https://amirsedaghat.com",
                   logo: {
                     "@type": "ImageObject",
                     // TODO: لوگو آپلود کن (512x512)
-                    url: "https://devsedaghat.com/logo.png",
+                    url: "https://amirsedaghat.com/logo.png",
                     width: 512,
                     height: 512,
                   },
                   sameAs: [
-                    "https://x.com/devsedaghat",
-                    "https://youtube.com/@DevSedaghat",
+                    "https://x.com/TheAmirSedaghat",
+                    "https://youtube.com/@TheAmirSedaghat",
                   ],
                   founder: {
                     "@type": "Person",
@@ -188,7 +183,7 @@ export default function RootLayout({
                   },
                   contactPoint: {
                     "@type": "ContactPoint",
-                    email: "hello@devsedaghat.com",
+                    email: "hello@amirsedaghat.com",
                     contactType: "Customer Support",
                   },
                 },

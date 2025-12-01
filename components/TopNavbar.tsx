@@ -106,13 +106,9 @@ const MenuNew: React.FC<MenuNewProps> = ({ links = defaultLinks }) => {
     <nav aria-label="Main navigation">
       {/* Desktop / main bar */}
       <div
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(22, 22, 30,.5), rgba(22, 22, 30,.5))",
-        }}
-        className={` fixed inset-x-0 mx-auto top-0 z-50 flex items-center justify-center px-4 py-6 backdrop-blur-xl bg-white/5 border-b border-white/5 mask-[linear-gradient(to_bottom,black,black_50%,transparent)] supports-backdrop-filter:backdrop-blur-md 
-       
-          `}
+        className={
+          "topnav backdrop-blur-xs sm:backdrop-blur-md fixed inset-x-0 mx-auto top-0 z-50 flex items-center justify-center px-4 py-6"
+        }
       >
         <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between">
           {/* پس‌زمینه‌ی بلوری با progressive mask */}
