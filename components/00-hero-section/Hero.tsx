@@ -23,11 +23,11 @@ const Hero = () => {
 
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-8   ">
         <div
-          className="flex flex-col items-center justify-center  gap-8  sm:gap-12 md:gap-14 lg:gap-16 xl:gap-20
-                        pt-18 lg:py-20 md:pb-36
-                        lg:min-h-[90vh] lg:flex-row lg:justify-between "
+          className="flex flex-col items-center justify-center  gap-8  pt-18 sm:gap-12 md:gap-14 md:pb-36
+                        lg:min-h-[90vh] lg:flex-row lg:justify-between
+                        lg:gap-16 lg:py-20 xl:gap-20 "
         >
-          <div className="flex flex-col items-center justify-center  lg:items-start text-center lg:text-left space-y-6  sm:space-y-10 md:space-y-12 w-full   sm:max-w-lg md:max-w-2xl  lg:w-full  ">
+          <div className="flex w-full flex-col items-center  justify-center space-y-6 text-center sm:max-w-lg  sm:space-y-10 md:max-w-2xl md:space-y-12   lg:w-full lg:items-start  lg:text-left  ">
             <div className="space-y-4  sm:space-y-6 ">
               <p className="text-base font-medium text-foreground/70 tracking-widest">
                 👋 Hey, I&apos;m
@@ -104,7 +104,7 @@ const Hero = () => {
                   Follow on LinkedIn <Plus />
                 </Button>
                 <Link href={"#project"} className="w-full">
-                  <Button className="group animate-rainbow w-full  cursor-pointer border-0 bg-size-[200%]    [background-clip:padding-box,border-box,border-box]     bg-origin-border     text-primary-foreground     transition-all    duration-400 [border:calc(0.125rem)_solid_transparent] hover:shadow-[0_0_16px_var(--purple-p-200)]    hover:brightness-110 hover:saturate-150 dark:bg-[linear-gradient(var(--text-dark-100),rgba(0,0,0,0)),linear-gradient(90deg,var(--mint-p-300),var(--yellow-p-200),var(--pink-p-100),var(--blue-p-300),var(--purple-p-200),var(--mint-p-200),var(--blue-p-300),var(--yellow-p-200))] ">
+                  <Button className="group animate-rainbow w-full  cursor-pointer border-0 bg-size-[200%] [background-clip:padding-box,border-box,border-box] bg-origin-border text-primary-foreground transition-all duration-400 [border:calc(0.125rem)_solid_transparent] hover:shadow-[0_0_16px_var(--purple-p-200)] hover:brightness-110 hover:saturate-150 dark:bg-[linear-gradient(var(--text-dark-100),rgba(0,0,0,0)),linear-gradient(90deg,var(--mint-p-300),var(--yellow-p-200),var(--pink-p-100),var(--blue-p-300),var(--purple-p-200),var(--mint-p-200),var(--blue-p-300),var(--yellow-p-200))] ">
                     View my project
                     <ChevronRight className=" size-4 stroke-neutral-500 group-hover:stroke-neutral-800 transition-all duration-300 ease-in-out group-hover:translate-x-0.5" />
                   </Button>
@@ -114,15 +114,15 @@ const Hero = () => {
           </div>
 
           {/*!-------- */}
-          <div className="flex  md:left-[15%]  mx-6 md:left- md:mx-auto absolute bottom-0  lg:-bottom-12 lg:left-1/2 lg:items-end  ">
-            <div className=" absolute bottom-0 justify-center items-center  w-80  bg-(--myneutral-500)  rounded-br-[10px] rounded-bl-[45px] rounded-tl-[80px] rounded-tr-[30px] h-[70%]"></div>
+          <div className="absolute right-0 bottom-0 left-0 flex justify-center   lg:-bottom-12 lg:left-1/2  lg:items-end">
+            <div className="absolute bottom-0 h-[70%] w-80  items-center  justify-center rounded-tl-[80px] rounded-tr-[30px] rounded-br-[10px] rounded-bl-[45px] bg-(--myneutral-500)"></div>
             <svg
               width="306"
               height="544"
               viewBox="0 0 306 544"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute w-52 bottom-0 -left-5 md:-left-12 z-30"
+              className="absolute bottom-0 left-0 z-30 w-52 xs:left-[8%] sm:left-[18%] md:left-[25%]  lg:left-12"
             >
               <path
                 fillRule="evenodd"
@@ -137,7 +137,7 @@ const Hero = () => {
               viewBox="0 0 291 516"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute w-62 left-8 "
+              className="absolute w-62  "
             >
               <path
                 fillRule="evenodd"
@@ -153,7 +153,7 @@ const Hero = () => {
               viewBox="0 0 304 430"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute w-50 bottom-8 left-32  md:right-4 md:bottom-12"
+              className="absolute w-50 bottom-8 right-0 z-30  xs:right-[8%] sm:right-[18%] md:right-[25%]  lg:right-12"
             >
               <path
                 fillRule="evenodd"
@@ -165,7 +165,7 @@ const Hero = () => {
 
             <Image
               src={"/HeroImage.png"}
-              alt="Portrait of Amir Sedaghat (DevSedaghat) - tech educator, full-stack developer, and SaaS builder."
+              alt="Portrait of Amir Sedaghat (theamirsedaghat) - tech educator, full-stack developer, and SaaS builder."
               width={400}
               height={400}
               priority
@@ -175,10 +175,11 @@ const Hero = () => {
 
             <Terminal
               startOnView={true}
-              className="z-40 absolute bottom-2  left-[15%] md:left-[30%] sm:left-48 w-70 "
+              // className="z-40 absolute bottom-2  left-[15%] md:left-[30%] sm:left-48  "
+              className="z-40 absolute bottom-2 right-[4%] sm:right-12 md:right-[20%] lg:right-4 "
             >
               <TypingAnimation delay={0}>
-                &gt; npx DevSedaghat@latest init
+                &gt; npx TheAmirSedaghat@latest init
               </TypingAnimation>
               <AnimatedSpan delay={2500} className="text-blue-400">
                 ✔ Building creative interfaces...
@@ -192,7 +193,7 @@ const Hero = () => {
               </AnimatedSpan>
             </Terminal>
           </div>
-          <HeroAnimatedBeam className="w-full lg:pr-6  md:w-full md:-right-28 md:bottom-8 lg:-right-8 lg:bottom-0 sm:z-35 z-50  " />
+          <HeroAnimatedBeam className="z-50 w-full  sm:z-35 md:-right-28 md:bottom-8 md:w-full lg:-right-8 lg:bottom-0 lg:pr-6  " />
           <div className="h-[400px] md:hidden"></div>
         </div>
       </div>

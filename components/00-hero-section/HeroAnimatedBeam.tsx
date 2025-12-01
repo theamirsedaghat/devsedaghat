@@ -54,7 +54,7 @@ export function HeroAnimatedBeam({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative flex w-full items-center justify-center overflow-hidden mt-8 md:mt-0 ",
+        "relative flex w-full items-center justify-center overflow-hidden   ",
         className
       )}
       ref={containerRef}
