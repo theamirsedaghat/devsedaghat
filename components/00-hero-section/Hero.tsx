@@ -175,11 +175,10 @@ const Hero = () => {
 
             <Terminal
               startOnView={true}
-              // className="z-40 absolute bottom-2  left-[15%] md:left-[30%] sm:left-48  "
               className="z-40 absolute bottom-2 right-[4%] sm:right-12 md:right-[20%] lg:right-4 "
             >
               <TypingAnimation delay={0}>
-                &gt; npx TheAmirSedaghat@latest init
+                &gt; npx amirsedaghat@latest init
               </TypingAnimation>
               <AnimatedSpan delay={2500} className="text-blue-400">
                 ✔ Building creative interfaces...

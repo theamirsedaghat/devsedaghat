@@ -199,7 +199,7 @@ const MenuNew: React.FC<MenuNewProps> = ({ links = defaultLinks }) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden  fixed inset-0 backdrop-blur-md bg-black/30 z-50"
+            className="md:hidden  fixed inset-0 bg-black/50 z-50"
             variants={overlayVariants}
             initial="hidden"
             animate="visible"
@@ -213,7 +213,7 @@ const MenuNew: React.FC<MenuNewProps> = ({ links = defaultLinks }) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed top-0 right-0 h-full w-5/6 bg-white/1 backdrop-blur-xl shadow-xl z-80  rounded-bl-4xl rounded-tl-4xl flex flex-col"
+            className="md:hidden fixed top-0 right-0 h-full w-5/6 bg-white/1 backdrop-blur-xs md:backdrop-blur-lg shadow-xl z-80  rounded-bl-4xl rounded-tl-4xl flex flex-col customBlur124"
             variants={drawerVariants}
             initial="hidden"
             animate="visible"
@@ -263,26 +263,6 @@ const MenuNew: React.FC<MenuNewProps> = ({ links = defaultLinks }) => {
                 );
               })}
             </ul>
-
-            {/* Social links */}
-            {/* <nav
-              aria-label="Social links"
-              className="flex justify-center w-full space-x-6 md:space-x-6 p-6"
-            >
-              <GitHubLogoIcon className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
-              <LinkedInLogoIcon className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
-              <IconBrandYoutube className="size-7 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
-              <InstagramLogoIcon className="size-7 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
-              <IconBrandTiktok className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
-              <IconBrandX className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/85" />
-            </nav>
-
-            <div className="h-px w-full bg-linear-to-r from-transparent via-neutral-500 to-transparent dark:via-neutral-500" />
-            <div className="w-full text-center  py-4 mb-4">
-              <h2 className="text-white/30 text-xs font-semibold leading-normal tracking-widest uppercase">
-                ©2025 DevSedaghat. All rights reserved.
-              </h2>
-            </div> */}
 
             <Footer
               className="space-x-6 p-4 md:p-6 md:space-x-12 "

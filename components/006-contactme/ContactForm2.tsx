@@ -193,17 +193,6 @@ export default function ContactForm2() {
       noValidate
       className="mx-auto max-w-2xl space-y-6 rounded-2xl border border-white/10 bg-background/60 p-6 shadow-xl shadow-white/10 backdrop-blur-md md:p-8"
     >
-      {/* Title / context */}
-      <div className="space-y-2">
-        <h2 className="text-lg font-semibold tracking-tight text-white">
-          Tell me about your idea
-        </h2>
-        <p className="text-sm leading-relaxed text-white/60">
-          Whether you&apos;re a founder, a team, or a learner, share as much
-          context as you can. I read every message personally.
-        </p>
-      </div>
-
       {/* Name */}
       <div className="space-y-1.5">
         <label

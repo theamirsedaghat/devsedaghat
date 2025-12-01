@@ -23,12 +23,10 @@
   }
 }
 .customBlur124 {
-  background: rgba(15, 23, 42, 0.8); /* شیشه‌ای تیره */
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 .customBlur164 {
-  background: rgba(15, 23, 42, 0.8); /* شیشه‌ای تیره */
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
 }
@@ -37,10 +35,8 @@
   .customBlur124 {
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
-    background: rgba(15, 23, 42, 0.92);
   }
   .customBlur164 {
-    background: rgba(15, 23, 42, 0.8); /* شیشه‌ای تیره */
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
   }
@@ -54,8 +50,13 @@
   display: none; /* Chrome, Safari, Opera */
 }
 
+/* ============================================================
+   Glass System نهایی – بهینه برای همه دستگاه‌ها (A14 تا S24 Ultra + دسکتاپ)
+   فقط ۲ کلاس اصلی + ۲ کلاس افکت hover
+   ============================================================ */
+
+/* ۱. نوار بالا – Top Navigation Bar */
 .topnav {
-  /* پایه ثابت — همه جا کار می‌کنه */
   background: linear-gradient(
     to bottom,
     rgba(22, 22, 30, 0.5),
@@ -73,45 +74,172 @@
   );
   mask: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
 
-  /* مقدار پیش‌فرض: خیلی سبک (6px) — روی همه گوشی ضعیف هم عالیه */
-  backdrop-filter: blur(16px);
+  /* بلور پیش‌فرض خیلی سبک */
+  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 
-  /* ترفند مهم: will-change و transform برای اینکه GPU لایه جدا بزنه و لگ نخوره */
-  will-change: transform;
+  /* GPU acceleration */
   transform: translateZ(0);
+  will-change: transform;
 }
 
-/* گوشی‌های متوسط و قوی (از 768px به بالا یا دستگاه‌هایی که hover دارن) → blur بیشتر و قشنگ‌تر */
+/* ۲. کارت شیشه‌ای اصلی */
+.glass-card {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+
+  /* بلور پیش‌فرض سبک */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* ۳. لایه هایلایت هاور (هر دو کامپوننت ازش استفاده می‌کنن) */
+.glass-highlight {
+  pointer-events: none;
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.glass-radial-glow {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(255, 255, 255, 0.25),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+/* ============================================================
+   Progressive Enhancement – بلور بیشتر فقط برای دستگاه‌های قوی
+   ============================================================ */
+
+/* دستگاه‌های متوسط و قوی (تبلت + گوشی‌های پرچمدار + لپ‌تاپ) */
 @media (min-width: 768px) and (hover: hover) {
-  .topnav {
-    backdrop-filter: blur(12px);
+  .topnav,
+  .glass-card {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
 }
 
-/* پرچمدارها و لپ‌تاپ/دسکتاپ → حداکثر زیبایی */
+/* دسکتاپ و پرچمدارهای واقعی (از 1024px به بالا) → حداکثر زیبایی */
 @media (min-width: 1024px) {
-  .topnav {
+  .topnav,
+  .glass-card {
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
 }
 
-/* اگر کاربر توی تنظیمات سیستم "شفافیت و بلور رو کم کن" رو فعال کرده باشه (iOS + Windows + Android جدید) */
-@media (prefers-reduced-transparency: reduce) {
-  .topnav {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background-color: rgba(22, 22, 30, 0.85);
+/* فعال شدن افکت‌های هاور فقط روی دستگاه‌هایی که واقعاً hover دارن */
+@media (hover: hover) {
+  .group:hover .glass-highlight {
+    opacity: 1;
+  }
+  .group:hover .glass-radial-glow {
+    opacity: 1;
   }
 }
 
-/* اگر کاربر "حرکت و انیمیشن رو کم کن" رو فعال کرده (خیلی از گوشی‌های ضعیف اینو روشن می‌کنن) */
+/* ============================================================
+   احترام به تنظیمات دسترسی کاربر (خیلی مهم!)
+   ============================================================ */
+
+@media (prefers-reduced-transparency: reduce) {
+  .topnav,
+  .glass-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(30, 30, 40, 0.92) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .topnav {
+  .topnav,
+  .glass-card,
+  .glass-highlight,
+  .glass-radial-glow {
+    transition: none !important;
+  }
+  .topnav,
+  .glass-card {
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
+  }
+}
+
+/* --- */
+/* ============================================================
+   Circle Beam Button – دکمه دایره‌ای شیشه‌ای هوشمند
+   z-10 flex size-14 items-center justify-center rounded-full  cursor-pointer   ease-out
+   ============================================================ */
+
+.circle-beam {
+  backdrop-filter: blur(2px); /* حداقل بلور — حتی روی ضعیف‌ترین گوشی هم خوبه */
+  -webkit-backdrop-filter: blur(2px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 10;
+
+  /* GPU boost */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* هاور فقط روی دستگاه‌هایی که موس/هاور دارن (دسکتاپ + بعضی تبلت‌ها) */
+@media (hover: hover) {
+  .circle-beam:hover {
+    border-color: transparent;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* دستگاه‌های قوی (iPhone 15, S24, Pixel 8, مک‌بوک و ...) → بلور ۴پیکسل قشنگ */
+@media (min-width: 480px),
+  (-webkit-min-device-pixel-ratio: 2) and (min-width: 360px) {
+  .circle-beam {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+}
+
+/* اگر کاربر شفافیت رو خاموش کرده باشه → solid + بدون بلور */
+@media (prefers-reduced-transparency: reduce) {
+  .circle-beam {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+  }
+}
+
+/* اگر کاربر انیمیشن رو کم کرده باشه */
+@media (prefers-reduced-motion: reduce) {
+  .circle-beam {
+    transition: none;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
   }
 }

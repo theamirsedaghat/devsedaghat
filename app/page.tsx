@@ -35,9 +35,9 @@ export default function Home() {
           <ContactMeSection />
         </section>
       </main>
-      <footer>
+      <footer className="mt-24">
         <Footer
-          className="space-x-6 p-4 md:space-x-12 "
+          className="space-x-6 p-4 md:space-x-12  "
           textStyle={"tracking-wider md:tracking-widest py-4 "}
         />
       </footer>

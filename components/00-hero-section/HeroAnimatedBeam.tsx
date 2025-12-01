@@ -27,10 +27,9 @@ const Circle = forwardRef<
     <Button
       ref={ref}
       className={cn(
-        `z-10 flex size-14 items-center justify-center rounded-full  cursor-pointer  transition-all duration-700 ease-out border border-y-white/30 border-x-white/40  backdrop-blur-xs  group hover:bg-linear-to-b 
-         bg-white/10 hover:bg-white/10 overflow-hidden hover:border-none
-
-`,
+        `z-10 flex size-14 items-center justify-center rounded-full  cursor-pointer group   
+customBlur124  hover:bg-linear-to-b bg-white/15 hover:bg-white/10
+circle-beam`,
         className
       )}
     >

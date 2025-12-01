@@ -211,45 +211,29 @@ export const Terminal = ({
       </ItemIndexContext.Provider>
     ));
   }, [children, sequence]);
-
+  // border-white/15    bg-white/5 backdrop-blur-lg    shadow-2xl
   const content = (
     <div
       ref={containerRef}
-      className={cn(
-        "group relative overflow-hidden    rounded-xl border border-white/15    bg-white/5 backdrop-blur-lg    shadow-2xl",
-        className
-      )}
+      className={cn("group glass-card backdrop-blur-sm", className)}
     >
-      {/* highlight layer */}
-      <div
-        className="
-      pointer-events-none
-      absolute inset-px rounded-[inherit]
-      bg-linear-to-br from-white/15 to-transparent
-      opacity-0 transition-opacity duration-500
-      group-hover:opacity-100
-    "
-      />
+      <div className="glass-highlight" />
 
-      {/* radial glow */}
-      <div
-        className="
-      pointer-events-none
-      absolute inset-0
-      bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.25),transparent_55%)]
-      opacity-0 transition-opacity duration-700
-      group-hover:opacity-100
-    "
-      />
-      <div className="flex flex-col gap-y-2 border-b border-border p-4">
+      <div className="glass-radial-glow" />
+
+      {/* دکمه‌های ترافیک لایت */}
+      <div className="flex flex-col gap-y-2 border-b border-white/10 p-4">
         <div className="flex flex-row gap-x-2">
           <div className="h-2 w-2 rounded-full bg-red-500" />
           <div className="h-2 w-2 rounded-full bg-yellow-500" />
           <div className="h-2 w-2 rounded-full bg-green-500" />
         </div>
       </div>
+
       <pre className="p-4">
-        <code className="grid gap-y-1 overflow-auto">{wrappedChildren}</code>
+        <code className="grid gap-y-1 overflow-auto text-sm text-white/90">
+          {wrappedChildren}
+        </code>
       </pre>
     </div>
   );

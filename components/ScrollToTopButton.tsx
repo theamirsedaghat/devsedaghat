@@ -64,24 +64,23 @@ export function ScrollToTopButton({
       aria-label="Scroll to top"
       className={cn(
         "fixed z-70",
-        "bottom-8 right-4  md:right-8",
+        "bottom-6 right-4  md:right-8",
         "inline-flex items-center justify-center rounded-full",
-        "h-10 w-10 md:h-12 md:w-12 cursor-pointer group overflow-hidden",
-        // گلس‌مورفیسم خیلی سبک
-        "bg-white/5 hover:bg-white/20 hover border border-white/15 dark:border-white/10 backdrop-blur-md",
+        "h-10 w-10 md:h-12 md:w-12 cursor-pointer group overflow-hidden border",
+
+        "customBlur124",
         "shadow-md shadow-black/15 dark:shadow-black/40",
 
-        "transition-all duration-300 ease-out motion-safe:hover:-translate-y-0.5 motion-safe:active:scale-85",
-        "motion-safe:hover:shadow-[0_0_14px_rgba(0, 0, 0, 0.85)]",
+        "hover:shadow-[0_0_14px_rgba(0, 0, 0, 0.85)]",
 
         isVisible
-          ? "opacity-100 pointer-events-auto translate-y-0"
-          : "opacity-0 pointer-events-none translate-y-2",
+          ? "opacity-100 pointer-events-auto "
+          : "opacity-0 pointer-events-none ",
 
         className
       )}
     >
-      <ChevronUp className="h-4 w-4 md:h-5 md:w-5 text-white opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-300 ease-out" />
+      <ChevronUp className="h-4 w-4 md:h-5 md:w-5 text-white opacity-60 group-hover:opacity-100 group-hover:scale-135 transition-all duration-300 ease-out" />
     </button>
   );
 }
