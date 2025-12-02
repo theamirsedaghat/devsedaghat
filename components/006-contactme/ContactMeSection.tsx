@@ -1,7 +1,4 @@
-import { Highlighter } from "../ui/highlighter";
-import ContactForm from "./ContactForm";
 import ContactForm2 from "./ContactForm2";
-import ContactMeForm from "./ContactMeForm";
 
 export interface SocialMediaLinksType {
   icon: React.ReactNode;
@@ -12,17 +9,7 @@ export default function ContactMeSection() {
   return (
     <>
       <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--yellow-p-200) mt-16 tracking-tight uppercase ">
-        <Highlighter
-          action="underline"
-          isView
-          strokeWidth={2}
-          iterations={3}
-          color="var(--yellow-p-200)"
-          padding={12}
-          animationDuration={1000}
-        >
-          Contact Me 🤝
-        </Highlighter>
+        Contact Me 🤝
       </h2>
       <div className="relative">
         <div className="">

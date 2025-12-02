@@ -1,7 +1,6 @@
 "use client";
 
 import { BentoCard, BentoGrid } from "../ui/bento-grid";
-import { Highlighter } from "../ui/highlighter";
 import { WobbleCard } from "../ui/wobble-card";
 import {
   Rocket,
@@ -91,17 +90,7 @@ export default function Services() {
   return (
     <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 md:px-6 lg:px-8">
       <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--orange-p-300)  tracking-tight uppercase ">
-        <Highlighter
-          action="underline"
-          isView
-          strokeWidth={2}
-          iterations={3}
-          color="var(--orange-p-300)"
-          padding={12}
-          animationDuration={1000}
-        >
-          Services 🚀
-        </Highlighter>
+        Services 🚀
       </h2>
       <div className="space-y-4 w-full text-center">
         <p className="font-headline text-center text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
@@ -123,17 +112,7 @@ export default function Services() {
       </div>
 
       <h2 className=" text-center font-nunito font-bold text-3xl sm:text-4xl text-(--pink-p-300)  tracking-tight uppercase">
-        <Highlighter
-          action="underline"
-          isView
-          strokeWidth={2}
-          iterations={3}
-          color="var(--pink-p-300)"
-          padding={12}
-          animationDuration={1000}
-        >
-          Why me 🎯
-        </Highlighter>
+        Why me 🎯
       </h2>
 
       <div className="space-y-4 w-full text-center">

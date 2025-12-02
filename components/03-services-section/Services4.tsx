@@ -93,8 +93,8 @@ export function Services4() {
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-4">Services</h2>
         <p className="text-lg mb-8">
-          As DevSedaghat, I combine product thinking, frontend development, and
-          tech education to help founders, teams, and learners build real
+          As TheAmirSedaghat, I combine product thinking, frontend development,
+          and tech education to help founders, teams, and learners build real
           products—and actually understand the code behind them.
         </p>
         <BentoGrid className="lg:grid-rows-3">

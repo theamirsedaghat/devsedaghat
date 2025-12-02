@@ -6,6 +6,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Turnstile } from "@marsidev/react-turnstile";
+import { Asterisk, X } from "lucide-react";
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB
 const MAX_FILES = 3;
@@ -191,12 +192,12 @@ export default function ContactForm2() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="mx-auto max-w-2xl space-y-6 rounded-2xl border border-white/10 bg-background/60 p-6 shadow-xl shadow-white/10 backdrop-blur-md md:p-8"
+      className="mx-auto w-3xl space-y-6 rounded-2xl border border-white/10  p-6 shadow-xl shadow-white/10 md:p-8"
     >
       {/* Name */}
       <div className="space-y-1.5">
         <label
-          className="mb-1 block text-sm font-medium tracking-tight text-white/80"
+          className="mb-1 block text-sm font-medium tracking-tight"
           htmlFor="name"
         >
           Full name
@@ -204,13 +205,13 @@ export default function ContactForm2() {
         <input
           id="name"
           {...register("name")}
-          className="w-full rounded-lg border border-white/10 bg-black/40 px-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-indigo-400"
+          className="w-full rounded-lg border border-white/10 bg-[#18181f] px-4 py-2.5 text-sm  placeholder:text-white/30 outline-none  focus:border-transparent focus:ring-2 focus:ring-(--blue-p-400) hover:ring-(--blue-p-400)/60 hover:ring-1 transition-all duration-300 placeholder:text-xs"
           placeholder="John Doe"
           aria-invalid={!!errors.name}
           aria-describedby={errors.name ? "name-error" : undefined}
         />
         {errors.name && (
-          <p id="name-error" className="mt-1 text-xs text-red-400">
+          <p id="name-error" className="mt-1 text-xs text-(--error-warning)">
             {errors.name.message}
           </p>
         )}
@@ -219,7 +220,7 @@ export default function ContactForm2() {
       {/* Email */}
       <div className="space-y-1.5">
         <label
-          className="mb-1 block text-sm font-medium tracking-tight text-white/80"
+          className="mb-1 block text-sm font-medium tracking-tight"
           htmlFor="email"
         >
           Email
@@ -228,13 +229,13 @@ export default function ContactForm2() {
           id="email"
           type="email"
           {...register("email")}
-          className="w-full rounded-lg border border-white/10 bg-black/40 px-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-indigo-400"
+          className="w-full rounded-lg border border-white/10 bg-[#18181f] px-4 py-2.5 text-sm  placeholder:text-white/30 outline-none  focus:border-transparent focus:ring-2 focus:ring-(--yellow-p-300) hover:ring-(--yellow-p-300)/60 hover:ring-1 transition-all duration-300 placeholder:text-xs"
           placeholder="you@example.com"
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? "email-error" : undefined}
         />
         {errors.email && (
-          <p id="email-error" className="mt-1 text-xs text-red-400">
+          <p id="email-error" className="mt-1 text-xs text-(--error-warning)">
             {errors.email.message}
           </p>
         )}
@@ -243,47 +244,48 @@ export default function ContactForm2() {
       {/* Type of work (optional) */}
       <div className="space-y-1.5">
         <label
-          className="mb-1 block text-sm font-medium tracking-tight text-white/80"
+          className="mb-1 block text-sm font-medium tracking-tight"
           htmlFor="type_work"
         >
-          What are you reaching out about?
+          What are you reaching out about?{" "}
+          <span className="text-xs text-white/40">(optional)</span>
         </label>
         <select
           id="type_work"
           {...register("type_work", {
             setValueAs: (v) => (v === "" ? undefined : v),
           })}
-          className="w-full appearance-none rounded-lg border border-white/10 bg-black/40 px-4 py-2.5 text-sm text-white outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-indigo-400"
+          className="w-full appearance-none rounded-lg border border-white/10 bg-[#18181f] px-4 py-2.5 text-sm  outline-none  focus:border-transparent focus:ring-2 focus:ring-(--purple-p-400) hover:ring-(--purple-p-400)/60 hover:ring-1 transition-all duration-300 cursor-pointer"
           defaultValue=""
         >
-          <option value="" className="bg-slate-900 text-white">
-            Select an option (optional)
+          <option value="" className="bg-background text-white/40  ">
+            Select an option
           </option>
-          <option value="education" className="bg-slate-900 text-white">
+          <option value="education" className="bg-background  ">
             Tech education / mentoring
           </option>
-          <option value="saas" className="bg-slate-900 text-white">
-            SaaS / product collaboration
-          </option>
-          <option value="fullstack" className="bg-slate-900 text-white">
-            Frontend / full-stack project
-          </option>
-          <option value="investment" className="bg-slate-900 text-white">
+          <option value="investment" className="bg-background  ">
             Investment / partnership
           </option>
-          <option value="other" className="bg-slate-900 text-white">
+          <option value="fullstack" className="bg-background  ">
+            Frontend / full-stack project
+          </option>
+          <option value="saas" className="bg-background  ">
+            SaaS / product collaboration
+          </option>
+          <option value="other" className="bg-background  ">
             Something else
           </option>
         </select>
-        <p className="mt-1 text-xs text-white/40">
-          This helps me understand if I&apos;m the right person to help.
+        <p className=" text-xs text-white/40">
+          * This helps me understand if I&apos;m the right person to help.
         </p>
       </div>
 
       {/* Message */}
       <div className="space-y-1.5">
         <label
-          className="mb-1 block text-sm font-medium tracking-tight text-white/80"
+          className="mb-1 block text-sm font-medium tracking-tight"
           htmlFor="message"
         >
           Your message
@@ -292,13 +294,13 @@ export default function ContactForm2() {
           id="message"
           {...register("message")}
           rows={5}
-          className="min-h-[120px] w-full resize-y rounded-lg border border-white/10 bg-black/40 px-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-indigo-400"
+          className="resize-none min-h-[120px] w-full  rounded-lg border border-white/10 bg-[#18181f] px-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none  focus:border-transparent focus:ring-2 focus:ring-(--mint-p-400) hover:ring-(--mint-p-400)/60 hover:ring-1 transition-all duration-300 placeholder:text-xs"
           placeholder="Share the context, goals, timeline, and anything important about your project or question..."
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-error" : undefined}
         />
         {errors.message && (
-          <p id="message-error" className="mt-1 text-xs text-red-400">
+          <p id="message-error" className="mt-1 text-xs text-(--error-warning)">
             {errors.message.message}
           </p>
         )}
@@ -307,12 +309,12 @@ export default function ContactForm2() {
       {/* File dropzone + input */}
       <div className="space-y-1.5">
         <label
-          className="mb-1 block text-sm font-medium tracking-tight text-white/80"
+          className="mb-1 block text-sm font-medium tracking-tight"
           htmlFor="file"
         >
           Attachments{" "}
           <span className="text-xs text-white/40">
-            (optional, up to {MAX_FILES} files, each max 2 MB)
+            (optional, up to {MAX_FILES} files, max 2 MB)
           </span>
         </label>
 
@@ -320,10 +322,10 @@ export default function ContactForm2() {
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
-          className={`flex cursor-pointer flex-col items-center justify-center rounded-lg border border-dashed px-4 py-4 text-center text-xs transition-colors ${
+          className={`flex cursor-pointer flex-col items-center justify-center rounded-lg border border-dashed px-4 py-4 text-center text-xs transition-all duration-300 ${
             isDragging
-              ? "border-indigo-400 bg-indigo-500/10"
-              : "border-white/15 bg-black/30 hover:border-indigo-400/80 hover:bg-black/40"
+              ? "border-(--orange-p-300) bg-indigo-500/10"
+              : "border-white/15 bg-[#18181f] hover:border-(--orange-p-300)/70 hover:bg-[#18181f]"
           }`}
           onClick={() => {
             const input = document.getElementById(
@@ -332,12 +334,11 @@ export default function ContactForm2() {
             input?.click();
           }}
         >
-          <p className="mb-1 text-xs font-medium text-white/80">
+          <p className="mb-2 text-xs font-medium">
             Drag & drop files here, or click to browse
           </p>
-          <p className="text-[11px] text-white/40">
-            PDFs, images, or docs that provide more context (max {MAX_FILES}{" "}
-            files)
+          <p className="text-xs text-white/40">
+            PDFs, images, or docs that provide more context
           </p>
         </div>
 
@@ -356,7 +357,7 @@ export default function ContactForm2() {
             {files.map((file, idx) => (
               <li
                 key={`${file.name}-${idx}`}
-                className="flex items-center justify-between rounded-md bg-black/40 px-3 py-2 text-xs text-white/80"
+                className="flex items-center justify-between rounded-md bg-[#18181f] px-3 py-2 text-xs"
               >
                 <div className="flex min-w-0 flex-1 items-center gap-2">
                   <span className="truncate">{file.name}</span>
@@ -367,10 +368,10 @@ export default function ContactForm2() {
                 <button
                   type="button"
                   onClick={() => handleRemoveFile(idx)}
-                  className="ml-3 text-[11px] text-white/50 transition hover:text-red-400"
+                  className="ml-3 text-[11px] text-white/50 transition hover:text-(--error-warning) cursor-pointer"
                   aria-label={`Remove ${file.name}`}
                 >
-                  ✕
+                  <X />
                 </button>
               </li>
             ))}
@@ -379,36 +380,42 @@ export default function ContactForm2() {
 
         {/* Zod file-level error */}
         {errors.files?.message && (
-          <p className="mt-1 text-xs text-red-400">
+          <p className="mt-1 text-xs text-(--error-warning)">
             {String(errors.files.message)}
           </p>
         )}
       </div>
 
       {/* Turnstile */}
-      {siteKey ? (
-        <div className="flex justify-center pt-2">
-          <Turnstile
-            siteKey={siteKey}
-            onSuccess={(token) => setTurnstileToken(token)}
-            onError={() => setTurnstileToken(null)}
-            onExpire={() => setTurnstileToken(null)}
-            options={{ theme: "dark" }}
-          />
-        </div>
-      ) : (
-        <p className="text-center text-xs text-amber-400">
-          Turnstile site key is not configured. The form may not work correctly
-          in production.
-        </p>
-      )}
+      <div className=" h-18">
+        {siteKey ? (
+          <div className="flex justify-center ">
+            <Turnstile
+              siteKey={siteKey}
+              onSuccess={(token) => setTurnstileToken(token)}
+              onError={() => setTurnstileToken(null)}
+              onExpire={() => setTurnstileToken(null)}
+              options={{ theme: "dark" }}
+            />
+          </div>
+        ) : (
+          <p className="text-center text-sm text-orange-400">
+            <span className="font-bold">CAPTCHA</span> key is not configured.
+            The form may not work correctly in production or{" "}
+            <span className="font-bold">Refresh this page</span>.
+          </p>
+        )}
+      </div>
 
       {/* Submit */}
       <div className="space-y-2">
         <button
           type="submit"
           disabled={isSubmitDisabled}
-          className="flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 px-4 py-3 text-sm font-semibold text-white shadow-lg transition hover:opacity-90 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex w-full items-center justify-center rounded-lg bg-linear-to-r from-(--purple-p-400) to-(--orange-p-400) px-4 py-3 text-sm font-semibold text-background shadow-lg transition-all duration-300 active:scale-[0.95] cursor-pointer disabled:cursor-not-allowed disabled:opacity-50
+          
+          hover:shadow-[0_0_16px_var(--purple-p-300)] hover:brightness-110 hover:saturate-150
+          "
         >
           {loading ? (
             <span className="flex items-center gap-2">
@@ -423,7 +430,7 @@ export default function ContactForm2() {
         {/* Loading bar / progress-style indicator */}
         {loading && (
           <div className="h-1 w-full overflow-hidden rounded-full bg-white/10">
-            <div className="h-full w-1/3 animate-[loading-bar_1.2s_ease-in-out_infinite] bg-gradient-to-r from-blue-500 to-purple-500" />
+            <div className="h-full w-1/3 animate-[loading-bar_1.2s_ease-in-out_infinite] bg-linear-to-r from-(--purple-p-400) to-(--orange-p-400)" />
           </div>
         )}
       </div>
@@ -432,7 +439,7 @@ export default function ContactForm2() {
       {status && (
         <p
           className={`mt-2 text-center text-sm ${
-            status.success ? "text-emerald-400" : "text-red-400"
+            status.success ? "text-green-500" : "text-red-500"
           }`}
         >
           {status.message}

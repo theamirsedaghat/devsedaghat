@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themes-provider";
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
+import Head from "next/head";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -31,7 +32,8 @@ export const metadata: Metadata = {
     "Discover the world of Amir Sedaghat (TheAmirSedaghat), a full-stack innovator crafting seamless web and mobile experiences with React, Next.js, React Native, and UI/UX mastery. Dive into empowering tutorials, in-depth courses, real-world projects, and insightful strategies designed to elevate aspiring developers. Join a journey toward building impactful tech communities, fostering trust, and paving the way for groundbreaking SaaS ventures that attract visionary investors.",
   keywords: [
     "Amir Sedaghat",
-    "DevSedaghat",
+    "TheAmirSedaghat",
+    "AmirSedaghat",
     "Tech Educator",
     "Content Creator",
     "Full-Stack Developer",
@@ -44,7 +46,6 @@ export const metadata: Metadata = {
     "Educational Tech Courses",
     "SaaS Founder Visionary",
     "Tech Community Leader",
-    "Personal Branding in Tech",
     "YouTube Amir Sedaghat",
     "LinkedIn Amir Sedaghat",
     "Twitter Amir Sedaghat",
@@ -71,17 +72,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Amir Sedaghat | Tech Educator & Content Creator",
     description:
-      "Embark on an inspiring adventure with Amir Sedaghat (DevSedaghat), where full-stack expertise meets transformative education. Explore cutting-edge projects in web, UI/UX, and mobile development, alongside tutorials and courses that empower the next generation of tech leaders. Building credibility, community, and future SaaS empires – ready to innovate and invest together?",
+      "Embark on an inspiring adventure with Amir Sedaghat (TheAmirSedaghat), where full-stack expertise meets transformative education. Explore cutting-edge projects in web, UI/UX, and mobile development, alongside tutorials and courses that empower the next generation of tech leaders. Building credibility, community, and future SaaS empires – ready to innovate and invest together?",
     url: "https://amirsedaghat.com",
-    siteName: "DevSedaghat Portfolio",
+    siteName: "Amir Sedaghat Portfolio",
     images: [
       {
         // TODO: جایگزین کن با تصویر واقعی (1200x630)
-        // مثال: Canva → "DevSedaghat" + عکس + متن + رنگ برند
+        // مثال: Canva → "amirsedaghat" + عکس + متن + رنگ برند
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Amir Sedaghat - Portfolio of Amir Sedaghat, Tech Educator",
+        alt: "Amir Sedaghat - Portfolio of TheAmirSedaghat, Tech Educator",
       },
     ],
     locale: "en_US",
@@ -128,12 +129,12 @@ export default function RootLayout({
                   "@type": "Person",
                   "@id": "https://amirsedaghat.com/#person",
                   name: "Amir Sedaghat",
-                  alternateName: "DevSedaghat",
+                  alternateName: "TheAmirSedaghat",
                   url: "https://amirsedaghat.com",
                   image: {
                     "@type": "ImageObject",
                     // TODO: عکس پروفایل حرفه‌ای آپلود کن (800x800)
-                    url: "https://devsedaghat.com/amir-sedaghat-profile.jpg",
+                    url: "https://amirsedaghat.com/amir-sedaghat-profile.jpg",
                     width: 800,
                     height: 800,
                     caption:
@@ -164,7 +165,7 @@ export default function RootLayout({
                 {
                   "@type": "Organization",
                   "@id": "https://amirsedaghat.com/#organization",
-                  name: "DevSedaghat",
+                  name: "Amir Sedaghat",
                   url: "https://amirsedaghat.com",
                   logo: {
                     "@type": "ImageObject",
@@ -191,7 +192,7 @@ export default function RootLayout({
                 // {
                 //   "@type": "CreativeWork",
                 //   name: "Next.js Mastery Course",
-                //   url: "https://devsedaghat.com/courses/nextjs-mastery",
+                //   url: "https://amirsedaghat.com/courses/nextjs-mastery",
                 //   author: { "@type": "Person", name: "Amir Sedaghat" },
                 //   datePublished: "2025-01-15",
                 //   educationalLevel: "Intermediate",
@@ -203,6 +204,13 @@ export default function RootLayout({
           ),
         }}
       />
+      <Head>
+        <link
+          rel="preconnect"
+          href="https://challenges.cloudflare.com"
+          crossOrigin="anonymous"
+        />
+      </Head>
 
       <body
         className={`${poppins.variable} ${roboto.variable} ${nunito.variable} antialiased bg-background text-foreground`}

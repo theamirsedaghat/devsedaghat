@@ -1,11 +1,13 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { ChevronRight, Plus } from "lucide-react";
 import Link from "next/link";
-import { AnimatedSpan, Terminal, TypingAnimation } from "../ui/terminal";
 import { HeroAnimatedBeam } from "./HeroAnimatedBeam";
-import { FlipWords } from "../ui/flip-words";
 
+import { FlipWords } from "../ui/flip-words";
+import TerminalAnimation from "./TerminalAnimation";
+import heroImg from "@/public/HeroImage.webp";
 const Hero = () => {
   return (
     <div className="relative my-5 flex items-start md:items-center justify-center overflow-hidden lg:overflow-visible">
@@ -40,7 +42,7 @@ const Hero = () => {
               <p className=" text-base  sm:text-xl text-foreground/70 flex flex-wrap justify-center lg:justify-start items-center gap-1 ">
                 <span className="tracking-wider">also known as</span>
                 <span className="italic font-bold text-foreground">
-                  DevSedaghat
+                  TheAmirSedaghat
                 </span>
               </p>
 
@@ -76,12 +78,11 @@ const Hero = () => {
                 />
               </div>
 
-              <div className="mt-6  sm:mt-10 space-y-3 text-base sm:text-lg  lg:text-base  leading-relaxed text-foreground/70 max-w-[85%]  sm:max-w-lg md:max-w-2xl mx-auto lg:mx-0">
+              <div className="mt-6 sm:mt-10 space-y-3 text-base sm:text-lg  lg:text-base  sm:max-w-lg md:max-w-2xl mx-auto lg:mx-0">
                 <p>
                   I design and develop web and mobile products with a strong
                   focus on usability and user experience.
-                </p>
-                <p>
+                  <br />
                   Through high-quality videos, in-depth courses, and trending
                   content, I empower thousands of developers to master their
                   craft and build real-world products.
@@ -122,7 +123,7 @@ const Hero = () => {
               viewBox="0 0 306 544"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute bottom-0 left-0 z-30 w-52 xs:left-[8%] sm:left-[18%] md:left-[25%]  lg:left-12"
+              className="absolute hidden md:block bottom-0 left-0 z-30 w-52 xs:left-[8%] sm:left-[18%] md:left-[25%]  lg:left-12"
             >
               <path
                 fillRule="evenodd"
@@ -137,7 +138,7 @@ const Hero = () => {
               viewBox="0 0 291 516"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute w-62  "
+              className="absolute w-62 hidden md:block  "
             >
               <path
                 fillRule="evenodd"
@@ -153,7 +154,7 @@ const Hero = () => {
               viewBox="0 0 304 430"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute w-50 bottom-8 right-0 z-30  xs:right-[8%] sm:right-[18%] md:right-[25%]  lg:right-12"
+              className="absolute hidden md:block w-50 bottom-8 right-0 z-30  xs:right-[8%] sm:right-[18%] md:right-[25%]  lg:right-12"
             >
               <path
                 fillRule="evenodd"
@@ -164,16 +165,18 @@ const Hero = () => {
             </svg>
 
             <Image
-              src={"/HeroImage.png"}
+              src={heroImg}
               alt="Portrait of Amir Sedaghat (theamirsedaghat) - tech educator, full-stack developer, and SaaS builder."
               width={400}
               height={400}
               priority
-              quality={100}
+              quality={90}
               className="w-84 lg:w-100 z-40"
+              placeholder="blur"
+              blurDataURL={heroImg.blurDataURL}
             />
 
-            <Terminal
+            {/* <Terminal
               startOnView={true}
               className="z-40 absolute bottom-2 right-[4%] sm:right-12 md:right-[20%] lg:right-4 "
             >
@@ -190,7 +193,8 @@ const Hero = () => {
               <AnimatedSpan delay={5000} className="text-green-400">
                 ✨ Ready to deploy
               </AnimatedSpan>
-            </Terminal>
+            </Terminal> */}
+            <TerminalAnimation />
           </div>
           <HeroAnimatedBeam className="z-50 w-full  sm:z-35 md:-right-28 md:bottom-8 md:w-full lg:-right-8 lg:bottom-0 lg:pr-6  " />
           <div className="h-[400px] md:hidden"></div>

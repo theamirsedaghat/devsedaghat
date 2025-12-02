@@ -2,13 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-
+  transpilePackages: ["motion"],
   images: {
     remotePatterns: [{ protocol: "https", hostname: "**" }],
-    qualities: [75, 100],
+    qualities: [75, 90],
   },
   experimental: {
-    optimizePackageImports: ["some-package"],
+    optimizePackageImports: ["motion", "framer-motion", "some-package"],
   },
 };
 

@@ -5,11 +5,11 @@ const aboutContent = [
   {
     title: "Who I am",
     description:
-      "I’m Amir Sedaghat, also known as DevSedaghat — a developer and tech educator focused on building real web and mobile products. I blend frontend, product thinking, and content to create experiences that are both usable and useful.",
+      "I’m Amir Sedaghat, also known as TheAmirSedaghat — a developer and tech educator focused on building real web and mobile products. I blend frontend, product thinking, and content to create experiences that are both usable and useful.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_20%_0%,rgba(244,244,245,0.6),transparent_55%),linear-gradient(to_bottom_right,var(--blue-p-300),var(--purple-p-300))] text-white">
         <span className="text-lg font-semibold">
-          DevSedaghat — Builder & Educator
+          Amir Sedaghat — Builder & Educator
         </span>
       </div>
     ),
@@ -49,7 +49,7 @@ const aboutContent = [
   {
     title: "Community and long-term vision",
     description:
-      "I’m building DevSedaghat as a long-term brand — a place where learners, builders, and investors can intersect. Over the next years, my goal is to grow a community of builders, launch SaaS products, and collaborate with people who care about quality and impact.",
+      "I’m building TheAmirSedaghat as a long-term brand — a place where learners, builders, and investors can intersect. Over the next years, my goal is to grow a community of builders, launch SaaS products, and collaborate with people who care about quality and impact.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_10%_0%,rgba(255,255,255,0.4),transparent_55%),linear-gradient(to_bottom_right,var(--purple-p-300),var(--blue-p-400))] text-white">
         <div className="flex flex-col items-center gap-1 text-center">

@@ -111,12 +111,10 @@ const MenuNew: React.FC<MenuNewProps> = ({ links = defaultLinks }) => {
         }
       >
         <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between">
-          {/* پس‌زمینه‌ی بلوری با progressive mask */}
-
           {/* Logo */}
           <Link href="/" className="relative z-10">
             <span className="font-bold text-xl md:text-2xl tracking-tight">
-              DevSedaghat
+              AmirSedaghat
             </span>
           </Link>
 

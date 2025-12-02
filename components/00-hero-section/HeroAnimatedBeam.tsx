@@ -3,7 +3,14 @@
 import React, { forwardRef, useRef } from "react";
 
 import { cn } from "@/lib/utils";
-import { AnimatedBeam } from "../ui/animated-beam";
+
+const AnimatedBeam = dynamic(
+  () => import("../ui/animated-beam").then((mod) => mod.AnimatedBeam),
+  {
+    ssr: false,
+    loading: () => <div className="h-30" />,
+  }
+);
 import { Button } from "../ui/button";
 import {
   IconBrandGithub,
@@ -18,6 +25,7 @@ import {
   IconBrandYoutubeFilled,
 } from "@tabler/icons-react";
 import { BrainCircuit } from "lucide-react";
+import dynamic from "next/dynamic";
 
 const Circle = forwardRef<
   HTMLButtonElement,
@@ -172,37 +180,37 @@ export function HeroAnimatedBeam({ className }: { className?: string }) {
         containerRef={containerRef}
         fromRef={div1Ref}
         toRef={div6Ref}
-        duration={3}
+        duration={5}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div2Ref}
         toRef={div6Ref}
-        duration={3}
+        duration={5}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div3Ref}
         toRef={div6Ref}
-        duration={3}
+        duration={5}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div4Ref}
         toRef={div6Ref}
-        duration={3}
+        duration={5}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div5Ref}
         toRef={div6Ref}
-        duration={3}
+        duration={5}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div6Ref}
         toRef={div7Ref}
-        duration={3}
+        duration={5}
       />
     </div>
   );

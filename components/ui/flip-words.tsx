@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 type FlipWordItem = {
   text: string;
-  className?: string; // رنگ/گرادیانت/استایل اختصاصی همین کلمه
+  className?: string;
 };
 
 type FlipWordsProps = {
@@ -71,10 +71,10 @@ export const FlipWords = ({
         }}
         exit={{
           opacity: 0,
-          y: -40,
-          x: 40,
-          filter: "blur(8px)",
-          scale: 2,
+          y: -20,
+          x: 0,
+          filter: "blur(4px)",
+          scale: 1.2,
           position: "absolute",
         }}
         className={cn(
@@ -86,7 +86,7 @@ export const FlipWords = ({
         {currentWord.text.split(" ").map((word, wordIndex) => (
           <motion.span
             key={word + wordIndex}
-            initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
+            initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{
               delay: wordIndex * 0.3,
@@ -100,7 +100,7 @@ export const FlipWords = ({
                 initial={{
                   opacity: 0,
                   y: 10,
-                  filter: "blur(8px)",
+                  filter: "blur(4px)",
                 }}
                 animate={{
                   opacity: 1,

@@ -13,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://devsedaghat.com/sitemap.xml",
-    host: "https://devsedaghat.com", // برای جلوگیری از mirroring
+    sitemap: "https://amirsedaghat.com/sitemap.xml",
+    host: "https://amirsedaghat.com", // برای جلوگیری از mirroring
   };
 }

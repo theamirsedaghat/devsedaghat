@@ -288,10 +288,10 @@ export function TabSkills() {
             Long-Term Vision
           </h3>
           <p className="text-sm sm:text-base md:text-lg mb-4 sm:mb-5 md:mb-6 font-body text-foreground/80">
-            DevSedaghat isn&apos;t just a portfolio name — it&apos;s a long-term
-            brand. I&apos;m focused on building a community of builders first,
-            then growing into AI-driven SaaS products that make development
-            easier and more enjoyable.
+            TheAmirSedaghat isn&apos;t just a portfolio name — it&apos;s a
+            long-term brand. I&apos;m focused on building a community of
+            builders first, then growing into AI-driven SaaS products that make
+            development easier and more enjoyable.
           </p>
           <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm md:text-base">
             <li className="flex items-center gap-3">

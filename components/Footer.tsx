@@ -36,7 +36,7 @@ const Footer = ({
         <h2
           className={`text-white/30 text-xs md:text-sm font-semibold leading-normal  uppercase ${textStyle}`}
         >
-          ©2025 DevSedaghat. All rights reserved.
+          ©2025 Amir Sedaghat. All rights reserved.
         </h2>
       </div>
     </div>
