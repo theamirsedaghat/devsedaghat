@@ -4,12 +4,10 @@ import { StatsSection } from "@/components/StatsSection";
 import Hero from "@/components/00-hero-section/Hero";
 import SectionImporter from "@/components/SectionImporter";
 
-// اینا SSR دارن، فقط chunk جدا می‌شن (اوکی برای SEO)
 const About = dynamic(
   () => import("@/components/01-about-section/About").then((m) => m.default),
   {
     loading: () => null,
-    // ssr: true به‌صورت پیش‌فرض هست، نیازی نیست بنویسی
   }
 );
 
@@ -28,24 +26,9 @@ const Services = dynamic(
   }
 );
 
-// فقط جایی که به JS سنگین نیاز داری ssr: false بذار
-const ContactMeSection = dynamic(
-  () =>
-    import("@/components/006-contactme/ContactMeSection").then(
-      (m) => m.default
-    ),
-  {
-    // ssr: false, // چون Turnstile + RHF + فرم ـه، اینجا منطقیه
-    loading: () => null,
-  }
-);
+// <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
-const Footer = dynamic(
-  () => import("@/components/Footer").then((m) => m.default),
-  {
-    loading: () => null,
-  }
-);
+// <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="amirsedaghat" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ir.linkedin.com/in/amirsedaghat?trk=profile-badge">Amir Sedaghat</a></div>
 
 export default function Home() {
   return (
