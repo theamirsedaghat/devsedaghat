@@ -5,7 +5,7 @@ const aboutContent = [
   {
     title: "Who I am",
     description:
-      "I’m Amir Sedaghat, also known as TheAmirSedaghat — a developer and tech educator focused on building real web and mobile products. I blend frontend, product thinking, and content to create experiences that are both usable and useful.",
+      "I work at the intersection of several worlds — engineering, teaching, and product. Most of my time goes into designing and shipping real web and mobile experiences, then turning that process into something others can learn from. What matters to me is clear thinking, honest trade-offs, and explaining things without hype or unnecessary complexity.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_20%_0%,rgba(244,244,245,0.6),transparent_55%),linear-gradient(to_bottom_right,var(--blue-p-300),var(--purple-p-300))] text-white">
         <span className="text-lg font-semibold">
@@ -15,9 +15,9 @@ const aboutContent = [
     ),
   },
   {
-    title: "From code to content",
+    title: "From stack to learning roadmap",
     description:
-      "I don’t just ship projects — I document and teach the process. Through short-form content, deep-dive videos, and practical guides, I help developers move from tutorial-watching to building their own products.",
+      "I work with modern web and mobile stacks: HTML, CSS, JavaScript, React, Next.js, Tailwind, and React Native.Step by step, I’m moving deeper into full-stack flows, databases, deployment, and AI integration — and I share that journey in public.My content roadmap starts with the basics (HTML/CSS/JavaScript), moves into React and Next.js, and then continues into full-stack apps, mobile projects, and AI-powered tools.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--pink-p-200),var(--blue-p-300))] text-white">
         <div className="flex flex-col items-center gap-2 text-center">
@@ -32,9 +32,15 @@ const aboutContent = [
     ),
   },
   {
-    title: "SaaS, AI, and real-world products",
-    description:
-      "My next focus is building SaaS products with AI integration — tools that help creators, developers, and small teams work smarter. I care about clean UX, practical automation, and solving real problems, not just fancy demos.",
+    title: "Who I build and teach for",
+    description: `For students and self-taught developers, I try to make my content feel like a clear roadmap, not a random playlist of tutorials.
+
+For teams and founders, I use the same mindset to help with:
+	•	shaping and iterating on MVPs,
+	•	improving UI and UX flows,
+	•	and creating documentation or educational material around a product.
+
+My core work lives in modern web and mobile — from interface design and user journeys to the overall flow of a project.`,
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--mint-p-300),var(--yellow-p-200))] text-slate-900">
         <div className="flex flex-col items-center gap-2 text-center">
@@ -47,9 +53,9 @@ const aboutContent = [
     ),
   },
   {
-    title: "Community and long-term vision",
+    title: "What’s next",
     description:
-      "I’m building TheAmirSedaghat as a long-term brand — a place where learners, builders, and investors can intersect. Over the next years, my goal is to grow a community of builders, launch SaaS products, and collaborate with people who care about quality and impact.",
+      "I like taking a rough idea, giving it a clear shape, and turning it into something that people can actually use and learn from.Over the next years, I want to focus on small, focused tools — SaaS products and AI-assisted helpers that make it easier for creators, developers, and small teams to move faster and ship with more confidence.This portfolio is just one snapshot of that direction, not the destination.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_10%_0%,rgba(255,255,255,0.4),transparent_55%),linear-gradient(to_bottom_right,var(--purple-p-300),var(--blue-p-400))] text-white">
         <div className="flex flex-col items-center gap-1 text-center">

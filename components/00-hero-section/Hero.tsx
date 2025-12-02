@@ -58,17 +58,17 @@ const Hero = () => {
                       className: "text-(--blue-p-200)",
                     },
                     {
-                      text: "SaaS Developer",
+                      text: "Product Builder",
                       className: "text-(--purple-p-300)",
+                    },
+                    {
+                      text: "Emerging SaaS founder",
+
+                      className: "text-(--mint-p-300) ",
                     },
                     {
                       text: "UI/UX Designer",
                       className: "text-(--yellow-p-200)",
-                    },
-                    {
-                      text: "Full-Stack Dev",
-
-                      className: "text-(--mint-p-300) ",
                     },
                     {
                       text: "Content Creator",
@@ -80,12 +80,12 @@ const Hero = () => {
 
               <div className="mt-6 sm:mt-10 space-y-3 text-base sm:text-lg  lg:text-base  sm:max-w-lg md:max-w-2xl mx-auto lg:mx-0">
                 <p>
-                  I design and develop web and mobile products with a strong
-                  focus on usability and user experience.
-                  <br />
-                  Through high-quality videos, in-depth courses, and trending
-                  content, I empower thousands of developers to master their
-                  craft and build real-world products.
+                  I build modern web and mobile products with a clear focus on
+                  usability, clarity, and real-world constraints — not just
+                  pretty demos. Alongside that, I teach what I learn. From
+                  fundamentals to production-ready patterns, my goal is to help
+                  developers move from “I kind of get it” to “I actually shipped
+                  something that works.”
                 </p>
               </div>
             </div>

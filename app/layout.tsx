@@ -70,9 +70,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Amir Sedaghat | Tech Educator & Content Creator",
+    title: "Amir Sedaghat – Tech Educator & Product Builder (Web, Mobile, AI)",
     description:
-      "Embark on an inspiring adventure with Amir Sedaghat (TheAmirSedaghat), where full-stack expertise meets transformative education. Explore cutting-edge projects in web, UI/UX, and mobile development, alongside tutorials and courses that empower the next generation of tech leaders. Building credibility, community, and future SaaS empires – ready to innovate and invest together?",
+      "Amir Sedaghat is a tech educator and product builder focused on modern web, mobile with React, Next.js, React Native, and AI-powered SaaS. He creates clear learning paths, real-world projects, and educational content for developers, founders, and teams.",
     url: "https://amirsedaghat.com",
     siteName: "Amir Sedaghat Portfolio",
     images: [
