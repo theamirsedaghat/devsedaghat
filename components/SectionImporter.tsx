@@ -19,12 +19,12 @@ const Footer = dynamic(() => import("@/components/Footer"), {
 export default function SectionImporter() {
   return (
     <>
-      <Suspense fallback={<div className="h-screen" />}>
+      <Suspense fallback={<div />}>
         <section id="contact" className="scroll-mt-12 md:scroll-mt-18">
           <ContactMeSection />
         </section>
       </Suspense>
-      <Suspense fallback={<div className="h-32" />}>
+      <Suspense fallback={<div />}>
         <footer className="mt-24">
           <Footer
             className="space-x-6 p-4 md:space-x-12"

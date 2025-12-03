@@ -68,7 +68,7 @@ export function ScrollToTopButton({
         "inline-flex items-center justify-center rounded-full",
         "h-10 w-10 md:h-12 md:w-12 cursor-pointer group overflow-hidden border",
 
-        "customBlur124",
+        "customBlur84",
         "shadow-md shadow-black/15 dark:shadow-black/40",
 
         "hover:shadow-[0_0_14px_rgba(0, 0, 0, 0.85)]",

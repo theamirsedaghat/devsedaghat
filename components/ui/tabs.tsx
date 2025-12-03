@@ -41,9 +41,8 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "flex flex-row items-center justify-start sm:justify-center gap-2 sm:gap-3 md:gap-6",
-          "w-full overflow-x-auto scrollbar-hide no-visible-scrollbar pr-16",
-          "snap-x snap-mandatory ",
+          "flex flex-row items-center justify-center gap-4 ",
+          "w-full",
           containerClassName
         )}
       >
@@ -57,7 +56,7 @@ export const Tabs = ({
               onMouseEnter={() => setHovering(true)}
               onMouseLeave={() => setHovering(false)}
               className={cn(
-                "relative px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm md:text-base font-medium rounded-xs transition-all shrink-0",
+                "relative px-3 py-2 sm:px-4 sm:py-2 text-sm md:text-base font-medium rounded-xs transition-all shrink-0",
                 "snap-center cursor-pointer",
                 tabClassName
               )}
@@ -68,7 +67,7 @@ export const Tabs = ({
                   layoutId="clickedbutton"
                   transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                   className={cn(
-                    "absolute inset-0  backdrop-blur-xs rounded-md",
+                    "absolute inset-0 rounded-md",
                     activeTabClassName
                   )}
                   style={{
@@ -90,12 +89,6 @@ export const Tabs = ({
           );
         })}
       </div>
-      <div
-        className="absolute top-0 right-0 py-6 w-24 pointer-events-none 
-                  bg-linear-to-l from-background  to-transparent md:hidden"
-      >
-        <div className="w-1/3 bg-transparent h-full top-0 right-0 absolute backdrop-blur-xs backdrop-opacity-80" />
-      </div>
 
       <div className="w-full max-w-[1200px] mx-auto">
         <FadeInDiv
@@ -103,10 +96,7 @@ export const Tabs = ({
           active={active}
           key={active.value}
           hovering={hovering}
-          className={cn(
-            "mt-10 4 h-[70vh] sm:h-[70vh] md:h-[72vh] lg:h-[50vh]",
-            contentClassName
-          )}
+          className={cn("mt-10 4 h-[600px]  lg:h-[500px]", contentClassName)}
         />
       </div>
     </>

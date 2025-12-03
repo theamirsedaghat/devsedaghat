@@ -6,7 +6,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Turnstile } from "@marsidev/react-turnstile";
-import { Asterisk, X } from "lucide-react";
+import { SendHorizonal, X } from "lucide-react";
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB
 const MAX_FILES = 3;
@@ -425,6 +425,7 @@ export default function ContactForm2() {
           ) : (
             "Send message"
           )}
+          <SendHorizonal className="mx-2 size-5 text-background/75" />
         </button>
 
         {/* Loading bar / progress-style indicator */}

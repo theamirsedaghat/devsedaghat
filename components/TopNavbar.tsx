@@ -11,16 +11,6 @@ import Link from "next/link";
 import HamburgerMenu from "./ui/icons/HamburgerMenu";
 import CloseMenu from "./ui/icons/CloseMenu";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
-import {
-  GitHubLogoIcon,
-  InstagramLogoIcon,
-  LinkedInLogoIcon,
-} from "@radix-ui/react-icons";
-import {
-  IconBrandYoutube,
-  IconBrandTiktok,
-  IconBrandX,
-} from "@tabler/icons-react";
 import Footer from "./Footer";
 
 interface MenuNewProps {
@@ -169,9 +159,9 @@ const MenuNew: React.FC<MenuNewProps> = ({ links = defaultLinks }) => {
 
           {/* Desktop CTA */}
           <div className="relative z-10 hidden md:flex items-center space-x-4">
-            <InteractiveHoverButton>
-              <Link href="#contact">Let&apos;s Talk</Link>
-            </InteractiveHoverButton>
+            <Link href="#contact">
+              <InteractiveHoverButton>Let&apos;s Talk</InteractiveHoverButton>
+            </Link>
           </div>
 
           {/* Mobile menu toggle */}

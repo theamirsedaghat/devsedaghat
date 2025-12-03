@@ -13,7 +13,7 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ className }) => {
           className="
         grid grid-cols-1 sm:grid-cols-3
         divide-y divide-border/40 sm:divide-y-0 sm:divide-x
-        rounded-2xl bg-black/5 dark:bg-white/5 backdrop-blur-sm 
+        rounded-2xl bg-black/5 dark:bg-white/5  
       "
         >
           {/* 1) LinkedIn Connections */}

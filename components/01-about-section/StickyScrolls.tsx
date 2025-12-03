@@ -3,7 +3,7 @@ import { StickyScroll } from "../ui/sticky-scroll-reveal";
 
 const aboutContent = [
   {
-    title: "Who I am",
+    title: "Who I Am",
     description:
       "I work at the intersection of several worlds — engineering, teaching, and product. Most of my time goes into designing and shipping real web and mobile experiences, then turning that process into something others can learn from. What matters to me is clear thinking, honest trade-offs, and explaining things without hype or unnecessary complexity.",
     content: (
@@ -15,9 +15,9 @@ const aboutContent = [
     ),
   },
   {
-    title: "From stack to learning roadmap",
+    title: "From Stack to Learning Roadmap",
     description:
-      "I work with modern web and mobile stacks: HTML, CSS, JavaScript, React, Next.js, Tailwind, and React Native.Step by step, I’m moving deeper into full-stack flows, databases, deployment, and AI integration — and I share that journey in public.My content roadmap starts with the basics (HTML/CSS/JavaScript), moves into React and Next.js, and then continues into full-stack apps, mobile projects, and AI-powered tools.",
+      "I specialize in modern web and mobile stacks: HTML, CSS, JavaScript, React, Next.js, Tailwind CSS, and React Native. Gradually, I'm deepening my expertise in full-stack architecture, databases, deployment pipelines, and AI integrations—sharing the entire journey publicly. My content roadmap begins with fundamentals (HTML, CSS, JavaScript), progresses to frameworks like React and Next.js, and extends into full-stack apps, mobile development, and AI-enhanced tools.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--pink-p-200),var(--blue-p-300))] text-white">
         <div className="flex flex-col items-center gap-2 text-center">
@@ -32,15 +32,8 @@ const aboutContent = [
     ),
   },
   {
-    title: "Who I build and teach for",
-    description: `For students and self-taught developers, I try to make my content feel like a clear roadmap, not a random playlist of tutorials.
-
-For teams and founders, I use the same mindset to help with:
-	•	shaping and iterating on MVPs,
-	•	improving UI and UX flows,
-	•	and creating documentation or educational material around a product.
-
-My core work lives in modern web and mobile — from interface design and user journeys to the overall flow of a project.`,
+    title: "Who I Build and Teach For",
+    description: `I create for self-taught developers and aspiring builders, turning scattered tutorials into structured roadmaps that lead to real shipped projects. For teams and founders, I apply the same approach to refine MVPs, optimize UI/UX flows, and develop educational resources around products. At my core, I focus on modern web and mobile—from intuitive interfaces and user journeys to seamless project orchestration.`,
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--mint-p-300),var(--yellow-p-200))] text-slate-900">
         <div className="flex flex-col items-center gap-2 text-center">
@@ -55,7 +48,7 @@ My core work lives in modern web and mobile — from interface design and user j
   {
     title: "What’s next",
     description:
-      "I like taking a rough idea, giving it a clear shape, and turning it into something that people can actually use and learn from.Over the next years, I want to focus on small, focused tools — SaaS products and AI-assisted helpers that make it easier for creators, developers, and small teams to move faster and ship with more confidence.This portfolio is just one snapshot of that direction, not the destination.",
+      "I thrive on shaping raw ideas into usable, teachable products that empower others. In the coming years, I'll focus on compact, high-impact tools—SaaS solutions and AI assistants designed to help creators, developers, and small teams iterate faster and ship with greater confidence. This portfolio captures my current direction, but it's just the beginning of a broader vision.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_10%_0%,rgba(255,255,255,0.4),transparent_55%),linear-gradient(to_bottom_right,var(--purple-p-300),var(--blue-p-400))] text-white">
         <div className="flex flex-col items-center gap-1 text-center">

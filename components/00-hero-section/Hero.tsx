@@ -32,7 +32,7 @@ const Hero = () => {
           <div className="flex w-full flex-col items-center  justify-center space-y-6 text-center sm:max-w-lg  sm:space-y-10 md:max-w-2xl md:space-y-12   lg:w-full lg:items-start  lg:text-left  ">
             <div className="space-y-4  sm:space-y-6 ">
               <p className="text-base font-medium text-foreground/70 tracking-widest">
-                👋 Hey, I&apos;m
+                👋 Hi, I&apos;m
               </p>
 
               <h1 className="font-bold tracking-tight text-4xl  sm:text-5xl md:text-6xl ">
@@ -62,11 +62,6 @@ const Hero = () => {
                       className: "text-(--purple-p-300)",
                     },
                     {
-                      text: "Emerging SaaS founder",
-
-                      className: "text-(--mint-p-300) ",
-                    },
-                    {
                       text: "UI/UX Designer",
                       className: "text-(--yellow-p-200)",
                     },
@@ -74,18 +69,22 @@ const Hero = () => {
                       text: "Content Creator",
                       className: "text-(--pink-p-300)",
                     },
+                    {
+                      text: "SaaS founder",
+
+                      className: "text-(--mint-p-300) ",
+                    },
                   ]}
                 />
               </div>
 
               <div className="mt-6 sm:mt-10 space-y-3 text-base sm:text-lg  lg:text-base  sm:max-w-lg md:max-w-2xl mx-auto lg:mx-0">
                 <p>
-                  I build modern web and mobile products with a clear focus on
-                  usability, clarity, and real-world constraints — not just
-                  pretty demos. Alongside that, I teach what I learn. From
-                  fundamentals to production-ready patterns, my goal is to help
-                  developers move from “I kind of get it” to “I actually shipped
-                  something that works.”
+                  I build web and mobile products that ship — clean, fast,
+                  solving real problems.
+                  <br /> <br />I teach everything I learn: calm, practical,
+                  zero-to-deployed content so developers stop watching and start
+                  shipping.
                 </p>
               </div>
             </div>
