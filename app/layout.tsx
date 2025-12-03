@@ -98,11 +98,9 @@ export const metadata: Metadata = {
     creator: "@theamirsedaghat",
   },
   icons: {
-    // TODO: favicon و apple icon رو در public/ بگذار
-    // favicon: browser-logo.svg → 32x32 یا 64x64
-    // apple: icon.png → 180x180
-    icon: "/browser-logo.svg",
-    apple: "/icon.png",
+    icon: ["/favicon.ico", "/browser-logo.svg"],
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
   },
 };
 export const viewport = {
@@ -204,13 +202,14 @@ export default function RootLayout({
           ),
         }}
       />
-      <Head>
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Amir Sedaghat" />
         <link
           rel="preconnect"
           href="https://challenges.cloudflare.com"
           crossOrigin="anonymous"
         />
-      </Head>
+      </head>
 
       <body
         className={`${poppins.variable} ${roboto.variable} ${nunito.variable} antialiased bg-background text-foreground`}

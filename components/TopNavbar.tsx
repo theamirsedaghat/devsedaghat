@@ -12,6 +12,8 @@ import HamburgerMenu from "./ui/icons/HamburgerMenu";
 import CloseMenu from "./ui/icons/CloseMenu";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 import Footer from "./Footer";
+import logoSVG from "@/public/logo-lockup-compact.svg";
+import Image from "next/image";
 
 interface MenuNewProps {
   links?: { label: string; href: string }[];
@@ -97,15 +99,18 @@ const MenuNew: React.FC<MenuNewProps> = ({ links = defaultLinks }) => {
       {/* Desktop / main bar */}
       <div
         className={
-          "topnav backdrop-blur-xs sm:backdrop-blur-md fixed inset-x-0 mx-auto top-0 z-50 flex items-center justify-center px-4 py-6"
+          "topnav backdrop-blur-md  fixed inset-x-0 mx-auto top-0 z-50 flex items-center justify-center px-4 pt-4 pb-6"
         }
       >
         <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-10">
-            <span className="font-bold text-xl md:text-2xl tracking-tight">
-              AmirSedaghat
-            </span>
+            <Image
+              src={logoSVG}
+              alt="Your Logo"
+              className="h-auto w-auto max-h-10 lg:max-h-12"
+              priority
+            />
           </Link>
 
           {/* Desktop links */}
@@ -201,7 +206,7 @@ const MenuNew: React.FC<MenuNewProps> = ({ links = defaultLinks }) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed top-0 right-0 h-full w-5/6 bg-white/1 backdrop-blur-xs md:backdrop-blur-lg shadow-xl z-80  rounded-bl-4xl rounded-tl-4xl flex flex-col customBlur124"
+            className="md:hidden fixed top-0 right-0 h-full w-5/6 bg-white/1 backdrop-blur-md md:backdrop-blur-lg shadow-xl z-80  rounded-bl-4xl rounded-tl-4xl flex flex-col customBlur8"
             variants={drawerVariants}
             initial="hidden"
             animate="visible"

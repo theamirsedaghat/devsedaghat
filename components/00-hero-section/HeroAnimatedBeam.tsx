@@ -23,9 +23,11 @@ import {
   IconBrandXFilled,
   IconBrandYoutube,
   IconBrandYoutubeFilled,
+  IconWorld,
 } from "@tabler/icons-react";
 import { BrainCircuit } from "lucide-react";
 import dynamic from "next/dynamic";
+import LogoInside from "../ui/icons/LogoInside";
 
 const Circle = forwardRef<
   HTMLButtonElement,
@@ -35,7 +37,7 @@ const Circle = forwardRef<
     <Button
       ref={ref}
       className={cn(
-        `z-10 flex size-14 items-center justify-center rounded-full  cursor-pointer group   
+        `z-10 flex size-16 lg:size-18 items-center justify-center rounded-full  cursor-pointer group   
 customBlur124  hover:bg-linear-to-b bg-white/15 hover:bg-white/10
 circle-beam`,
         className
@@ -68,19 +70,19 @@ export function HeroAnimatedBeam({ className }: { className?: string }) {
     >
       <div className="flex size-full max-w-lg flex-row items-stretch justify-between gap-10 ">
         <div className="flex flex-col justify-center ">
-          <Circle ref={div7Ref} className=" bg-white/40 cursor-default">
-            <BrainCircuit
+          <Circle ref={div7Ref} className=" bg-white/40 cursor-default ">
+            <LogoInside
               className="
-              size-8 text-black/90 
+              size-13 lg:size-14
               transition-all duration-500 "
             />
           </Circle>
         </div>
         <div className="flex flex-col justify-center">
           <Circle ref={div6Ref} className=" bg-white/40 cursor-default ">
-            <BrainCircuit
+            <IconWorld
               className="
-              size-8 text-black/90 
+              size-8  text-white/90
               transition-all duration-500 "
             />
           </Circle>

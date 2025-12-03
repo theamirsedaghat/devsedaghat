@@ -192,7 +192,7 @@ export default function ContactForm2() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="mx-auto w-3xl space-y-6 rounded-2xl border border-white/10  p-6 shadow-xl shadow-white/10 md:p-8"
+      className="mx-auto w-full md:w-2/3 lg:w-full space-y-6  rounded-2xl border border-white/10  p-6 shadow-xl shadow-white/10 md:p-8"
     >
       {/* Name */}
       <div className="space-y-1.5">
