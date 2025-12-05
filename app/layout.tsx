@@ -4,7 +4,6 @@ import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themes-provider";
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
-import Head from "next/head";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -114,95 +113,108 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <Script
-        id="structured-data"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            {
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "Person",
-                  "@id": "https://amirsedaghat.com/#person",
-                  name: "Amir Sedaghat",
-                  alternateName: "TheAmirSedaghat",
-                  url: "https://amirsedaghat.com",
-                  image: {
-                    "@type": "ImageObject",
-                    // TODO: عکس پروفایل حرفه‌ای آپلود کن (800x800)
-                    url: "https://amirsedaghat.com/amir-sedaghat-profile.jpg",
-                    width: 800,
-                    height: 800,
-                    caption:
-                      "Amir Sedaghat - Full-Stack Innovator & Tech Educator",
+      <head>
+        <Script
+          id="mailerlite-universal"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+              .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+              n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+              (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+              ml('account', '1964636');
+            `,
+          }}
+        />
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              {
+                "@context": "https://schema.org",
+                "@graph": [
+                  {
+                    "@type": "Person",
+                    "@id": "https://amirsedaghat.com/#person",
+                    name: "Amir Sedaghat",
+                    alternateName: "TheAmirSedaghat",
+                    url: "https://amirsedaghat.com",
+                    image: {
+                      "@type": "ImageObject",
+                      // TODO: عکس پروفایل حرفه‌ای آپلود کن (800x800)
+                      url: "https://amirsedaghat.com/amir-sedaghat-profile.jpg",
+                      width: 800,
+                      height: 800,
+                      caption:
+                        "Amir Sedaghat - Full-Stack Innovator & Tech Educator",
+                    },
+                    sameAs: [
+                      "https://www.linkedin.com/in/amirsedaghat",
+                      "https://x.com/TheAmirSedaghat",
+                      "https://youtube.com/@TheAmirSedaghat",
+                      "https://github.com/TheAmirSedaghat",
+                      "https://instagram.com/TheAmirSedaghat",
+                    ],
+                    jobTitle: "Tech Educator & Content Creator",
+                    worksFor: {
+                      "@type": "Organization",
+                      "@id": "https://amirsedaghat.com/#organization",
+                    },
+
+                    knowsAbout: [
+                      "Full-Stack Development",
+                      "UI/UX Design",
+                      "SaaS Product Development",
+                      "Technical Content Creation",
+                    ],
+                    description:
+                      "Amir Sedaghat (TheAmirSedaghat) is a passionate full-stack innovator and tech educator dedicated to empowering developers through high-quality tutorials, courses, and open-source projects. With expertise in React, Next.js, React Native, and UI/UX, he builds scalable applications while teaching modern web development. Aspiring SaaS founder with a vision to create unicorn-level impact.",
                   },
-                  sameAs: [
-                    "https://www.linkedin.com/in/amirsedaghat",
-                    "https://x.com/TheAmirSedaghat",
-                    "https://youtube.com/@TheAmirSedaghat",
-                    "https://github.com/TheAmirSedaghat",
-                    "https://instagram.com/TheAmirSedaghat",
-                  ],
-                  jobTitle: "Tech Educator & Content Creator",
-                  worksFor: {
+                  {
                     "@type": "Organization",
                     "@id": "https://amirsedaghat.com/#organization",
-                  },
-
-                  knowsAbout: [
-                    "Full-Stack Development",
-                    "UI/UX Design",
-                    "SaaS Product Development",
-                    "Technical Content Creation",
-                  ],
-                  description:
-                    "Amir Sedaghat (TheAmirSedaghat) is a passionate full-stack innovator and tech educator dedicated to empowering developers through high-quality tutorials, courses, and open-source projects. With expertise in React, Next.js, React Native, and UI/UX, he builds scalable applications while teaching modern web development. Aspiring SaaS founder with a vision to create unicorn-level impact.",
-                },
-                {
-                  "@type": "Organization",
-                  "@id": "https://amirsedaghat.com/#organization",
-                  name: "Amir Sedaghat",
-                  url: "https://amirsedaghat.com",
-                  logo: {
-                    "@type": "ImageObject",
-                    // TODO: لوگو آپلود کن (512x512)
-                    url: "https://amirsedaghat.com/logo.png",
-                    width: 512,
-                    height: 512,
-                  },
-                  sameAs: [
-                    "https://x.com/TheAmirSedaghat",
-                    "https://youtube.com/@TheAmirSedaghat",
-                  ],
-                  founder: {
-                    "@type": "Person",
                     name: "Amir Sedaghat",
+                    url: "https://amirsedaghat.com",
+                    logo: {
+                      "@type": "ImageObject",
+                      // TODO: لوگو آپلود کن (512x512)
+                      url: "https://amirsedaghat.com/logo.png",
+                      width: 512,
+                      height: 512,
+                    },
+                    sameAs: [
+                      "https://x.com/TheAmirSedaghat",
+                      "https://youtube.com/@TheAmirSedaghat",
+                    ],
+                    founder: {
+                      "@type": "Person",
+                      name: "Amir Sedaghat",
+                    },
+                    contactPoint: {
+                      "@type": "ContactPoint",
+                      email: "hello@amirsedaghat.com",
+                      contactType: "Customer Support",
+                    },
                   },
-                  contactPoint: {
-                    "@type": "ContactPoint",
-                    email: "hello@amirsedaghat.com",
-                    contactType: "Customer Support",
-                  },
-                },
-                // TODO: وقتی دوره واقعی ساختی، اینو آپدیت کن
-                // {
-                //   "@type": "CreativeWork",
-                //   name: "Next.js Mastery Course",
-                //   url: "https://amirsedaghat.com/courses/nextjs-mastery",
-                //   author: { "@type": "Person", name: "Amir Sedaghat" },
-                //   datePublished: "2025-01-15",
-                //   educationalLevel: "Intermediate",
-                // },
-              ],
-            },
-            null,
-            2
-          ),
-        }}
-      />
-      <head>
+                  // TODO: وقتی دوره واقعی ساختی، اینو آپدیت کن
+                  // {
+                  //   "@type": "CreativeWork",
+                  //   name: "Next.js Mastery Course",
+                  //   url: "https://amirsedaghat.com/courses/nextjs-mastery",
+                  //   author: { "@type": "Person", name: "Amir Sedaghat" },
+                  //   datePublished: "2025-01-15",
+                  //   educationalLevel: "Intermediate",
+                  // },
+                ],
+              },
+              null,
+              2
+            ),
+          }}
+        />
         <meta name="apple-mobile-web-app-title" content="Amir Sedaghat" />
         <link
           rel="preconnect"

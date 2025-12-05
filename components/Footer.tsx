@@ -8,6 +8,7 @@ import {
   InstagramLogoIcon,
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 const Footer = ({
   className,
@@ -23,12 +24,39 @@ const Footer = ({
         aria-label="Social links"
         className={`flex justify-center w-auto ${className}  `}
       >
-        <GitHubLogoIcon className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
-        <LinkedInLogoIcon className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
-        <IconBrandYoutube className="size-7 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
-        <InstagramLogoIcon className="size-7 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
-        <IconBrandTiktok className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
-        <IconBrandX className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
+        <Link target="_blank" href={"https://www.youtube.com/@TheAmirSedaghat"}>
+          <IconBrandYoutube className="size-7 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
+        </Link>
+
+        {/* TikTok */}
+        <Link target="_blank" href={"https://www.tiktok.com/@TheAmirSedaghat"}>
+          <IconBrandTiktok className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
+        </Link>
+        {/* LinkedIn */}
+        <Link target="_blank" href={"https://www.linkedin.com/in/AmirSedaghat"}>
+          <LinkedInLogoIcon className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
+        </Link>
+
+        {/* Github */}
+        <Link target="_blank" href={"https://github.com/TheAmirSedaghat"}>
+          <GitHubLogoIcon className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
+        </Link>
+        {/* Instagram */}
+        <Link
+          target="_blank"
+          href={"https://www.instagram.com/TheAmirSedaghat/"}
+        >
+          <InstagramLogoIcon className="size-7 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
+        </Link>
+
+        {/* X */}
+        <Link
+          className="rounded-full"
+          target="_blank"
+          href={"https://x.com/TheAmirSedaghat"}
+        >
+          <IconBrandX className="size-6 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white/75 cursor-pointer" />
+        </Link>
       </nav>
 
       <div className="h-px w-full bg-linear-to-r from-transparent via-neutral-500 to-transparent dark:via-neutral-500" />

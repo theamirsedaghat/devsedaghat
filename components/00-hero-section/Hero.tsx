@@ -1,10 +1,9 @@
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { ChevronRight, Plus } from "lucide-react";
 import Link from "next/link";
 import { HeroAnimatedBeam } from "./HeroAnimatedBeam";
-
+import { GetRoadmapBtn } from "./GetRoadmapBtn";
 import { FlipWords } from "../ui/flip-words";
 import TerminalAnimation from "./TerminalAnimation";
 import heroImg from "@/public/HeroImage.webp";
@@ -103,12 +102,14 @@ const Hero = () => {
                   🎉 <hr className=" h-4 w-px bg-neutral-500" />
                   Follow on LinkedIn <Plus />
                 </Button>
-                <Link href={"#project"} className="w-full">
+
+                {/* <Link href={"#project"} className="w-full">
                   <Button className="group animate-rainbow w-full  cursor-pointer border-0 bg-size-[200%] [background-clip:padding-box,border-box,border-box] bg-origin-border text-primary-foreground transition-all duration-400 [border:calc(0.125rem)_solid_transparent] hover:shadow-[0_0_16px_var(--purple-p-200)] hover:brightness-110 hover:saturate-150 dark:bg-[linear-gradient(var(--text-dark-100),rgba(0,0,0,0)),linear-gradient(90deg,var(--mint-p-300),var(--yellow-p-200),var(--pink-p-100),var(--blue-p-300),var(--purple-p-200),var(--mint-p-200),var(--blue-p-300),var(--yellow-p-200))] ">
-                    View my project
+                    Get the Roadmap
                     <ChevronRight className=" size-4 stroke-neutral-500 group-hover:stroke-neutral-800 transition-all duration-300 ease-in-out group-hover:translate-x-0.5" />
                   </Button>
-                </Link>
+                </Link> */}
+                <GetRoadmapBtn />
               </div>
             </div>
           </div>

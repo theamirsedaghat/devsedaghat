@@ -3,7 +3,7 @@
 import React, { forwardRef, useRef } from "react";
 
 import { cn } from "@/lib/utils";
-
+// import { AnimatedBeam } from "../ui/animated-beam";
 const AnimatedBeam = dynamic(
   () => import("../ui/animated-beam").then((mod) => mod.AnimatedBeam),
   {
@@ -25,9 +25,9 @@ import {
   IconBrandYoutubeFilled,
   IconWorld,
 } from "@tabler/icons-react";
-import { BrainCircuit } from "lucide-react";
 import dynamic from "next/dynamic";
 import LogoInside from "../ui/icons/LogoInside";
+import Link from "next/link";
 
 const Circle = forwardRef<
   HTMLButtonElement,
@@ -37,7 +37,7 @@ const Circle = forwardRef<
     <Button
       ref={ref}
       className={cn(
-        `z-10 flex size-16 lg:size-18 items-center justify-center rounded-full  cursor-pointer group   
+        `z-10 flex size-16 lg:size-18 items-center justify-center overflow-hidden rounded-full  cursor-pointer group   
 customBlur124  hover:bg-linear-to-b bg-white/15 hover:bg-white/10
 circle-beam`,
         className
@@ -88,92 +88,128 @@ export function HeroAnimatedBeam({ className }: { className?: string }) {
           </Circle>
         </div>
         <div className="flex flex-col justify-center gap-4">
-          <Circle
-            ref={div1Ref}
-            className=" hover:from-neutral-800 hover:via-white/20 hover:to-[#080808] hover:shadow-lg  hover:shadow-neutral-800 
-            
-            "
+          {/* YouTube */}
+          <Link
+            className="rounded-full"
+            target="_blank"
+            href={"https://www.youtube.com/@TheAmirSedaghat"}
           >
-            <IconBrandGithub
-              className="
+            <Circle
+              ref={div1Ref}
+              className=" hover:from-[#ff4444]/65 hover:via-[#ffadad]/50 hover:to-[#ff0808]/90 hover:shadow-lg hover:shadow-[#ee6161]/40"
+            >
+              <IconBrandYoutube
+                className="
               size-8 text-white/90 
               transition-all duration-500 group-hover:opacity-0"
-            />
+              />
 
-            <IconBrandGithubFilled
-              className="
+              <IconBrandYoutubeFilled
+                className="
+                size-8  absolute inset-0 m-auto
+                opacity-0 scale-5 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 text-white/80"
+              />
+            </Circle>
+          </Link>
+          {/* TikTok */}
+          <Link
+            className="rounded-full"
+            target="_blank"
+            href={"https://www.tiktok.com/@TheAmirSedaghat"}
+          >
+            <Circle
+              ref={div2Ref}
+              className=" hover:from-black hover:via-[#2cf4ef]/30 hover:to-[#fe335a]/80 hover:shadow-lg hover:shadow-[#a1112e]/90"
+            >
+              <IconBrandTiktok
+                className="
+              size-8 text-white/90 
+              transition-all duration-500 group-hover:opacity-0"
+              />
+
+              <IconBrandTiktokFilled
+                className="
+              size-8  absolute inset-0 m-auto
+              opacity-0 scale-5 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 text-white/80"
+              />
+            </Circle>
+          </Link>
+          {/* Github */}
+          <Link
+            className="rounded-full"
+            target="_blank"
+            href={"https://github.com/TheAmirSedaghat"}
+          >
+            <Circle
+              ref={div3Ref}
+              className=" hover:from-neutral-800 hover:via-white/20 hover:to-[#080808] hover:shadow-lg  hover:shadow-neutral-800 
+            
+            "
+            >
+              <IconBrandGithub
+                className="
+              size-8 text-white/90 
+              transition-all duration-500 group-hover:opacity-0"
+              />
+
+              <IconBrandGithubFilled
+                className="
     size-8  absolute inset-0 m-auto
     opacity-0 scale-5 transition-all duration-500
     group-hover:opacity-100 group-hover:scale-100
     text-white/80
     
   "
-            />
-          </Circle>
-          <Circle
-            ref={div2Ref}
-            className=" hover:from-[#ff4444]/65 hover:via-[#ffadad]/50 hover:to-[#ff0808]/90 hover:shadow-lg hover:shadow-[#ee6161]/40"
+              />
+            </Circle>
+          </Link>
+          {/* LinkedIn */}
+          <Link
+            className="rounded-full"
+            target="_blank"
+            href={"https://www.linkedin.com/in/AmirSedaghat"}
           >
-            <IconBrandYoutube
-              className="
+            <Circle
+              ref={div4Ref}
+              className=" hover:from-[#0784c8]/40 hover:via-[#bfe9ff]/50 hover:to-[#005c8e] hover:shadow-lg hover:shadow-[#33b8ff]/30"
+            >
+              <IconBrandLinkedin
+                className="
               size-8 text-white/90 
               transition-all duration-500 group-hover:opacity-0"
-            />
+              />
 
-            <IconBrandYoutubeFilled
-              className="
+              <IconBrandLinkedinFilled
+                className="
               size-8  absolute inset-0 m-auto
               opacity-0 scale-5 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 text-white/80"
-            />
-          </Circle>
-          <Circle
-            ref={div3Ref}
-            className=" hover:from-black hover:via-[#2cf4ef]/30 hover:to-[#fe335a]/80 hover:shadow-lg hover:shadow-[#a1112e]/90"
+              />
+            </Circle>
+          </Link>
+
+          {/* X */}
+          <Link
+            className="rounded-full"
+            target="_blank"
+            href={"https://x.com/TheAmirSedaghat"}
           >
-            <IconBrandTiktok
-              className="
+            <Circle
+              ref={div5Ref}
+              className=" hover:from-neutral-950/80 hover:via-neutral-600/30 hover:to-black hover:shadow-md hover:shadow-neutral-950/40"
+            >
+              <IconBrandX
+                className="
               size-8 text-white/90 
               transition-all duration-500 group-hover:opacity-0"
-            />
+              />
 
-            <IconBrandTiktokFilled
-              className="
+              <IconBrandXFilled
+                className="
               size-8  absolute inset-0 m-auto
               opacity-0 scale-5 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 text-white/80"
-            />
-          </Circle>
-          <Circle
-            ref={div4Ref}
-            className=" hover:from-[#0784c8]/40 hover:via-[#bfe9ff]/50 hover:to-[#005c8e] hover:shadow-lg hover:shadow-[#33b8ff]/30"
-          >
-            <IconBrandLinkedin
-              className="
-              size-8 text-white/90 
-              transition-all duration-500 group-hover:opacity-0"
-            />
-
-            <IconBrandLinkedinFilled
-              className="
-              size-8  absolute inset-0 m-auto
-              opacity-0 scale-5 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 text-white/80"
-            />
-          </Circle>
-          <Circle
-            ref={div5Ref}
-            className=" hover:from-neutral-950/80 hover:via-neutral-600/30 hover:to-black hover:shadow-md hover:shadow-neutral-950/40"
-          >
-            <IconBrandX
-              className="
-              size-8 text-white/90 
-              transition-all duration-500 group-hover:opacity-0"
-            />
-
-            <IconBrandXFilled
-              className="
-              size-8  absolute inset-0 m-auto
-              opacity-0 scale-5 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 text-white/80"
-            />
-          </Circle>
+              />
+            </Circle>
+          </Link>
         </div>
       </div>
 

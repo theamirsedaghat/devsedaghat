@@ -26,7 +26,6 @@ const defaultLinks = [
   { label: "Services", href: "#services" },
 ];
 
-// رنگ اختصاصی برای هر سکشن (بر اساس id سکشن)
 const linkAccentClasses: Record<string, string> = {
   hero: "text-(--blue-p-300)",
   about: "text-(--purple-p-300)",
